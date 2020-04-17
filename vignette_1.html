@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Vignette_1</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/main.css" />
+
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+	<script src="libraries/leaflet-tilelayer-mask.js"></script>
+  </head>
+  <body>
+
+        <!-- NAVHBAR -->
+
+    <nav class="navbar navbar-light bg-light">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#moreInfo" aria-expanded="false" aria-controls="collapseExample">
+          &oplus;
+          </button>
+
+        <!-- Question here -->
+
+        <span class="navbar-text">
+          is the sea a common property without borders?
+          </span>
+
+        <!-- Previous/Next Links here -->
+
+    <!--<a class="nav-link" href="#">Next Chapter</a>-->
+    <a class="nav-link disabled" href="#" aria-disabled="true" >&lang;</a>
+    <a class="nav-link" href="vignette_2.html">&rang;</a>
+    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#index" aria-expanded="false" aria-controls="collapseExample">
+      {}
+      </button>   
+  </nav>
+
+        <!-- MoreInfo Content here -->
+ 
+<div class="collapse" id="moreInfo">
+  <div class="card card-body">
+    AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+  </div>
+</div>
+        <!-- Index Content here -->
+
+<div class="collapse" id="index">
+    <div class="card card-body">
+      <p class="text-center" id="heading">With Compliments <br> to the Secretary General </p>
+
+      <p class="text-right">last updated <br> 13.04.2020</p>
+      <p class="text-center" id="sub-heading">visualising maritime claims  <br> at the UN in regards <br> of the continental shelf</p>
+
+      <p class="text-left"></p>  
+        </div>
+  </div>
+
+          <!-- VIGNETTE CONTENT HERE -->
+
+  <div id="map" style="position:absolute;top:50px;left:0;right:0;bottom:0;z-index:-9999;"></div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+        var map = L.map("map", {
+            zoom: 3,
+            center: [35.6323, 139.768815],
+            maxZoom: 7,
+            minZoom: 3
+        });
+        map.zoomControl.setPosition("bottomright");
+        map.attributionControl.addAttribution("<a href='https://github.com/frogcat/leaflet-tilelayer-mask'>fork me on GitHub</a>");
+        L.tileLayer('https://api.mapbox.com/styles/v1/vis-int/ck8qzjtmt0q3p1invzgkptzbo/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidmlzLWludCIsImEiOiJjanI2NWppYTIwNGR2NDRwaGI1N2xzZXBxIn0.dmZ6dkYdM95wixqH0mQb_w', {
+        }).addTo(map);
+    
+        var mask = L.tileLayer.mask('https://api.mapbox.com/styles/v1/vis-int/ck8sib48n12h91ilhpa6rk5jl/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidmlzLWludCIsImEiOiJjanI2NWppYTIwNGR2NDRwaGI1N2xzZXBxIn0.dmZ6dkYdM95wixqH0mQb_w', {
+            maskSize: 450,
+            maxZoom: 7,
+            maxNativeZoom: 7,
+            minZoom: 3
+    
+        }).addTo(map);
+    
+        map.on("mousemove", function(e) {
+            mask.setCenter(e.containerPoint);
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+   
+  </body>
+</html>
