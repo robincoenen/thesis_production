@@ -91,9 +91,13 @@ p {
     margin-bottom: 0;
 }
 
+/* Vignette 1 */
+
+.leaflet-control-attribution{
+    visibility: hidden;
+}
 
 /* Vignette 3 */
-
 
 #my_dataviz{
     background-color: black;
