@@ -33,7 +33,7 @@
         <!-- Previous/Next Links here -->
 
     <!--<a class="nav-link" href="#">Next Chapter</a>-->
-    <a class="nav-link disabled" href="#" aria-disabled="true" >&lang;</a>
+    <a class="nav-link" href="index.html" >&lang;</a>
     <a class="nav-link" href="vignette_2.html">&rang;</a>
     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#index" aria-expanded="false" aria-controls="collapseExample">
       {}
@@ -50,14 +50,39 @@
         <!-- Index Content here -->
 
 <div class="collapse" id="index">
-    <div class="card card-body">
-      <p class="text-center" id="heading">With Compliments <br> to the Secretary General </p>
+  <div id="video-compare-container">
+    <video  sound muted loop autoplay poster="./img/index/02_mask.png">
+      <source src=./img/index/02_Mask.mp4>
+    </video>
+   <div id="video-clipper">
+      <video  muted loop autoplay poster="./img/index/01_cover.png">
+        <source src=./img/index/01_Cover.mp4>
+      </video>
+    </div>
+      </div>
+      <p class="text-left" id="questions" data-toggle="popover" data-trigger="hover" data-placement="right" data-html="true" data-content="<img src='./img/index/testmap.png' >">is the sea a common property without borders?</p> <p class="text-left" id="questions" data-toggle="popover" data-trigger="hover" data-placement="right" data-html="true" data-content="<img src='test2.png' >">how did the distribution of ocean change over time?</p>
+      <p class="text-left" id="questions" data-toggle="popover" data-trigger="hover" data-placement="right" data-html="true" data-content="<img src='./img/index/testmap2.png' >">does the Convention On The Law Of The Sea create an extractive imaginery?</p> <p class="text-left" id="questions" data-toggle="popover" data-trigger="hover" data-placement="rightt" data-html="true" data-content="<img src='test1.png' >">which repercussions are implied in maritime claims? stakeholders</p>
+      <p class="text-left" id="questions" data-toggle="popover" data-trigger="hover" data-placement="right" data-html="true" data-content="<img src='./img/index/testmap.png' >">how much area is at stake, when?</p>
+      <p class="text-left" id="questions" data-toggle="popover" data-trigger="hover" data-placement="right" data-html="true" data-content="<img src='./img/index/testmap2.png' >">does the Convention On The Law Of The Sea aggreate or encounter existing inequalities? </p>
+      <p class="text-left" id="questions" data-toggle="popover" data-trigger="hover" data-placement="right" data-html="true" data-content="<img src='./img/index/test2.png' >">why shifts the perspective from land to sea?</p>
 
-      <p class="text-right">last updated <br> 13.04.2020</p>
-      <p class="text-center" id="sub-heading">visualising maritime claims  <br> at the UN in regards <br> of the continental shelf</p>
-
-      <p class="text-left"></p>  
-        </div>
+      <script>
+            function trackLocation(e) {
+            var rect = videoContainer.getBoundingClientRect(),
+                  position = ((e.pageY - rect.top) / videoContainer.offsetHeight)*100;
+            if (position <= 100) { 
+            videoClipper.style.height = position+"%";
+            clippedVideo.style.height = ((100/position)*100)+"%";
+            clippedVideo.style.zIndex = 3;
+                }
+            }
+            var videoContainer = document.getElementById("video-compare-container"),
+            videoClipper = document.getElementById("video-clipper"),
+            clippedVideo = videoClipper.getElementsByTagName("video")[0];
+            videoContainer.addEventListener( "mousemove", trackLocation, false); 
+            videoContainer.addEventListener("touchstart",trackLocation,false);
+            videoContainer.addEventListener("touchmove",trackLocation,false);
+            </script>
   </div>
 
           <!-- VIGNETTE CONTENT HERE -->
