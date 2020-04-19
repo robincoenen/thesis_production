@@ -20,8 +20,10 @@
 
           <!-- NAVHBAR -->
 
-          <nav class="navbar navbar-light bg-light">
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#moreInfo" aria-expanded="false" aria-controls="collapseExample">
+          <nav class="navbar fixed-top navbar-light bg-light">
+            <div class="d-flex justify-content-start">
+
+            <button class="btn btn-link" id="moreinfo"type="button" data-toggle="collapse" data-target="#moreInfo" aria-expanded="false" aria-controls="collapseExample">
               &oplus;
               </button>
       
@@ -30,21 +32,26 @@
             <span class="navbar-text">
               does  the Law of the Sea create an extractive imaginery?
               </span>
-      
+            </div>
+
             <!-- Previous/Next Links here -->
       
-        <!--<a class="nav-link" href="#">Next Chapter</a>-->
+        <div class="d-flex justify-content-end">
         <a class="nav-link" href="vignette_1.html" >&lang;</a>
         <a class="nav-link" href="vignette_3.html">&rang;</a>
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#index" aria-expanded="false" aria-controls="collapseExample">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#index" aria-expanded="false">
           {}
           </button>   
+        </div>
       </nav>
       
             <!-- MoreInfo Content here -->
       
       <div class="collapse" id="moreInfo">
       <div class="card card-body">
+        AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
         AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
       </div>
       </div>
@@ -63,6 +70,7 @@
       
 
           <!-- VIGNETTE CONTENT HERE -->
+          <img src="./img/vignette_2/unclos_words_3.jpg" id="hello">
 
           <script>
             $(function(){
@@ -75,14 +83,13 @@
      });
      
      </script>
-       <div id="test">
-       <img src="./img/vignette_2/unclos_words_3.jpg">
-      </div>
    
        <style>  
-       img {
+       #hello {
+         position:absolute;
+         z-index: -9999;
          width: 100%;
-         margin-bottom: 100px;
+         margin-top:68px;
        }</style>
    </html>
    

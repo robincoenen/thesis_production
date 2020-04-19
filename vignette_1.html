@@ -1,89 +1,31 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Vignette_1</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-    <link rel="stylesheet" href="css/main.css" />
+  <title>Vignette_1</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/main.css" />
 
 	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-	<script src="libraries/leaflet-tilelayer-mask.js"></script>
+  <script src="libraries/leaflet-tilelayer-mask.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script  src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+  
   </head>
   <body>
 
-        <!-- NAVHBAR -->
-
-    <nav class="navbar navbar-light bg-light">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#moreInfo" aria-expanded="false" aria-controls="collapseExample">
-          &oplus;
-          </button>
-
-        <!-- Question here -->
-
-        <span class="navbar-text">
-          is the sea a common property without borders?
-          </span>
-
-        <!-- Previous/Next Links here -->
-
-    <!--<a class="nav-link" href="#">Next Chapter</a>-->
-    <a class="nav-link" href="index.html" >&lang;</a>
-    <a class="nav-link" href="vignette_2.html">&rang;</a>
-    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#index" aria-expanded="false" aria-controls="collapseExample">
-      {}
-      </button>   
-  </nav>
-
-        <!-- MoreInfo Content here -->
- 
-<div class="collapse" id="moreInfo">
-  <div class="card card-body">
-    AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-  </div>
-</div>
-        <!-- Index Content here -->
-
-<div class="collapse" id="index">
-  <div id="video-compare-container">
-    <video  sound muted loop autoplay poster="./img/index/02_mask.png">
-      <source src=./img/index/02_Mask.mp4>
-    </video>
-   <div id="video-clipper">
-      <video  muted loop autoplay poster="./img/index/01_cover.png">
-        <source src=./img/index/01_Cover.mp4>
-      </video>
-    </div>
-      </div>
-      <p class="text-left" id="questions" data-toggle="popover" data-trigger="hover" data-placement="right" data-html="true" data-content="<img src='./img/index/testmap.png' >">is the sea a common property without borders?</p> <p class="text-left" id="questions" data-toggle="popover" data-trigger="hover" data-placement="right" data-html="true" data-content="<img src='test2.png' >">how did the distribution of ocean change over time?</p>
-      <p class="text-left" id="questions" data-toggle="popover" data-trigger="hover" data-placement="right" data-html="true" data-content="<img src='./img/index/testmap2.png' >">does the Convention On The Law Of The Sea create an extractive imaginery?</p> <p class="text-left" id="questions" data-toggle="popover" data-trigger="hover" data-placement="rightt" data-html="true" data-content="<img src='test1.png' >">which repercussions are implied in maritime claims? stakeholders</p>
-      <p class="text-left" id="questions" data-toggle="popover" data-trigger="hover" data-placement="right" data-html="true" data-content="<img src='./img/index/testmap.png' >">how much area is at stake, when?</p>
-      <p class="text-left" id="questions" data-toggle="popover" data-trigger="hover" data-placement="right" data-html="true" data-content="<img src='./img/index/testmap2.png' >">does the Convention On The Law Of The Sea aggreate or encounter existing inequalities? </p>
-      <p class="text-left" id="questions" data-toggle="popover" data-trigger="hover" data-placement="right" data-html="true" data-content="<img src='./img/index/test2.png' >">why shifts the perspective from land to sea?</p>
-
-      <script>
-            function trackLocation(e) {
-            var rect = videoContainer.getBoundingClientRect(),
-                  position = ((e.pageY - rect.top) / videoContainer.offsetHeight)*100;
-            if (position <= 100) { 
-            videoClipper.style.height = position+"%";
-            clippedVideo.style.height = ((100/position)*100)+"%";
-            clippedVideo.style.zIndex = 3;
-                }
-            }
-            var videoContainer = document.getElementById("video-compare-container"),
-            videoClipper = document.getElementById("video-clipper"),
-            clippedVideo = videoClipper.getElementsByTagName("video")[0];
-            videoContainer.addEventListener( "mousemove", trackLocation, false); 
-            videoContainer.addEventListener("touchstart",trackLocation,false);
-            videoContainer.addEventListener("touchmove",trackLocation,false);
-            </script>
-  </div>
+   
 
           <!-- VIGNETTE CONTENT HERE -->
 
@@ -95,7 +37,8 @@
             zoom: 3,
             center: [35.6323, 139.768815],
             maxZoom: 7,
-            minZoom: 3
+            minZoom: 3,
+            worldCopyJump:true
         });
         map.zoomControl.setPosition("bottomright");
         L.tileLayer('https://api.mapbox.com/styles/v1/vis-int/ck8qzjtmt0q3p1invzgkptzbo/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidmlzLWludCIsImEiOiJjanI2NWppYTIwNGR2NDRwaGI1N2xzZXBxIn0.dmZ6dkYdM95wixqH0mQb_w', {
@@ -105,17 +48,88 @@
             maskSize: 450,
             maxZoom: 7,
             maxNativeZoom: 7,
-            minZoom: 3
+            minZoom: 3,
+            worldCopyJump:true
     
         }).addTo(map);
     
         map.on("mousemove", function(e) {
             mask.setCenter(e.containerPoint);
         });
+
+        $.getJSON("./data/testb.geojson", function (data) {
+    var StratfordBoundary = L.geoJSON(data,
+    
+        {
+            onEachFeature: function onEachFeature(feature, layer) {
+                layer.setStyle({
+        stroke: true,
+        weight:30,
+        color: '#666',
+        opacity: 0.0,
+    }).bindTooltip('<h6><b>' + feature.properties.LINE_NAME + '</b><br>Description: ' + feature.properties.SOURCE1+'</h6>',{sticky: true, opacity: 1, direction: 'right'});
+        }
+        }).addTo(map);
+});  
+
+       
+//        fetch("./data/testb.geojson")
+//.then(function(response) {
+//return response.json();
+//})
+//
+//.then(function(data) {
+//L.geoJSON(data,{}).bindTooltip(function (layer) {
+//    return layer.feature.properties.LINE_ID;
+//}).addTo(map);
+//});
+
+
+
+
     </script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
    
+
+        <!-- NAVHBAR -->
+
+        <nav class="navbar fixed-top navbar-light bg-light">
+          <div class="d-flex justify-content-start">
+    
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#moreInfo" aria-expanded="false" aria-controls="collapseExample">
+              &oplus;
+              </button>
+    
+            <!-- Question here -->
+    
+            <span class="navbar-text">
+              is the sea a common property without borders?
+              </span>
+              </div>
+    
+            <!-- Previous/Next Links here -->
+    
+        <!--<a class="nav-link" href="#">Next Chapter</a>-->
+        <div class="d-flex justify-content-end">
+    
+        <a class="nav-link" href="index.html" >&lang;</a>
+        <a class="nav-link" href="vignette_2.html">&rang;</a>
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#index" aria-expanded="false" aria-controls="collapseExample">
+          {}
+          </button>  
+          </div> 
+      </nav>
+    
+            <!-- MoreInfo Content here -->
+     
+    <div class="collapse" id="moreInfo">
+      <div class="card card-body">
+        AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      </div>
+    </div>
+            <!-- Index Content here -->
   </body>
 </html>

@@ -22,6 +22,8 @@
         <!-- NAVHBAR -->
 
     <nav class="navbar navbar-light bg-light">
+      <div class="d-flex justify-content-start">
+
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#moreInfo" aria-expanded="false" aria-controls="collapseExample">
           &oplus;
           </button>
@@ -31,15 +33,19 @@
         <span class="navbar-text">
           which stakeholder has an opinion to which claim?
           </span>
+          </div>
 
         <!-- Previous/Next Links here -->
 
     <!--<a class="nav-link" href="#">Next Chapter</a>-->
+    <div class="d-flex justify-content-end">
+
     <a class="nav-link " href="vignette_2.html">&lang;</a>
     <a class="nav-link" href="dashboard.html">&rang;</a>
     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#index" aria-expanded="false" aria-controls="collapseExample">
         {}
       </button>   
+      </div>
   </nav>
 
         <!-- MoreInfo Content here -->
@@ -89,7 +95,9 @@
             
               // List of node names
               var allNodes = data.nodes.map(function(d){return d.name})
-            
+
+
+
               // A linear scale to position the nodes on the X axis
               var x = d3.scalePoint()
                 .range([0, width])
@@ -104,6 +112,16 @@
                 .style("text-anchor", "end")
                 .style("font-size", 12)
                 .style("fill", "white")
+                
+                              var text = d3.selectAll("text");
+var bbox = text.node().getBBox();
+var padding = 2;
+var rect = self.svg.insert("rect", "text")
+    .attr("x", bbox.x - padding)
+    .attr("y", bbox.y - padding)
+    .attr("width", bbox.width + (padding*2))
+    .attr("height", bbox.height + (padding*2))
+    .style("fill", "red");
 
               //Add the circle for the nodes
              var nodes = svg
@@ -115,7 +133,9 @@
                  .attr("cy", height-30)
                  .attr("r", 8)
                  .style("fill", "#fff")
-                        
+
+                 
+
               // Add links between nodes. Here is the tricky part.
               // In my input data, links are provided between nodes -id-, NOT between node names.
               // So I have to do a link between this id and the name
@@ -168,14 +188,7 @@
              
 
 
-            svg
-            .append('text')
-            .attr("text-anchor", "right")
-            .style("fill", "#B8B8B8")
-            .style("font-size", "17px")
-            .attr("x", 105)
-            .attr("y", 10)
-            .html("Global North")
+
 
             svg
             .append('text')
@@ -185,6 +198,15 @@
             .attr("x", 278)
             .attr("y", 10)
             .html("Global South")
+
+            svg
+            .append('text')
+            .attr("text-anchor", "right")
+            .style("fill", "#B8B8B8")
+            .style("font-size", "17px")
+            .attr("x", 105)
+            .attr("y", 10)
+            .html("Global North")
 
             svg
             .append('line')

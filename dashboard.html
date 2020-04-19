@@ -19,7 +19,7 @@
     
 <style>
 	body { margin: 0; padding: 0; }
-	#map { position: absolute; top: 80px; bottom: 0; width: 100%; }
+	#map { position: absolute; top: 68px; bottom: 0; width: 100%; }
 </style>
   </head>
   <body>
@@ -27,6 +27,8 @@
         <!-- NAVHBAR -->
 
     <nav class="navbar navbar-light bg-light">
+      <div class="d-flex justify-content-start">
+
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#moreInfo" aria-expanded="false" aria-controls="collapseExample">
           &oplus;
           </button>
@@ -36,16 +38,18 @@
         <span class="navbar-text">
           Claims in regard of the continental shelf
           </span>
+          </div>
 
         <!-- Previous/Next Links here -->
+        <div class="d-flex justify-content-ennd">
 
-    <!--<a class="nav-link" href="#">Next Chapter</a>-->
     <a class="nav-link" href="vignette_3.html" >&lang;</a>
     <a class="nav-link" href="index.html" >&rang;</a>
     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#index" aria-expanded="false" aria-controls="collapseExample">
         {}
       </button>   
   </nav>
+  </div>
 
         <!-- MoreInfo Content here -->
  
@@ -93,15 +97,15 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
 }
 
 .map {
-  border-left: 1px solid #fff;
   position: absolute;
   left: 33.3333%;
   width: 66.6666%;
-  top: 0;
+  top: 50px;
   bottom: 0;
 }
 
 .pad2 {
+  background-color: white;
   padding: 20px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -135,7 +139,7 @@ a:hover {
   position: absolute;
   width: 33.3333%;
   height: 100%;
-  top: 80px;
+  top: 68px;
   left: 0;
   overflow: hidden;
   border-right: 1px solid rgba(0, 0, 0, 0.25);
@@ -158,7 +162,7 @@ a:hover {
   border-bottom: 1px solid #eee;
   height: 60px;
   line-height: 60px;
-  padding: 0 10px;
+  padding: 0 28px;
 }
 
 .listings {
@@ -171,6 +175,7 @@ a:hover {
   display: block;
   border-bottom: 1px solid #eee;
   padding: 10px;
+  padding-left:28px;
   text-decoration: none;
 }
 
@@ -178,14 +183,14 @@ a:hover {
 
 .listings .item .title {
   display: block;
-  color: #00853e;
+  color: grey;
   font-weight: 700;
 }
 
 .listings .item .title small { font-weight: 400; }
 
 .listings .item.active .title,
-.listings .item .title:hover { color: #8cc63f; }
+.listings .item .title:hover { color: #000; }
 
 .listings .item.active {
   background-color: #f8f8f8;
