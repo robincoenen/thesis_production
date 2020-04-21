@@ -43,7 +43,7 @@
         <!-- Previous/Next Links here -->
         <div class="d-flex justify-content-ennd">
 
-    <a class="nav-link" href="vignette_3.html" >&lang;</a>
+    <a class="nav-link" href="vignette_5.html" >&lang;</a>
     <a class="nav-link" href="index.html" >&rang;</a>
     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#index" aria-expanded="false" aria-controls="collapseExample">
         {}
@@ -241,22 +241,23 @@ a:hover {
 .mapboxgl-popup-content h3 {
   background: #000;
   font-family: Simplon-Regular;
+  font-size: 24px;
   color: #fff;
   margin: 0;
   display: block;
   padding: 10px;
   border-radius: 3px 3px 0 0;
-  font-weight: 700;
   margin-top: -15px;
 }
 
 .mapboxgl-popup-content h4 {
   margin: 0;
   font-family: Simplon-Regular;
-
+  font-size:14px;
   display: block;
   padding: 10px;
   font-weight: 400;
+
 }
 
 .mapboxgl-popup-content div {
@@ -27435,8 +27436,12 @@ stores.features.forEach(function(store, i){
         if (popUps[0]) popUps[0].remove();
         var popup = new mapboxgl.Popup({closeOnClick: false})
           .setLngLat(currentFeature.geometry.coordinates[0][0][5])
-          .setHTML('<h3>Claim of</h3>' +
-            '<h4>' + currentFeature.properties.state + '</h4>')
+          .setHTML('<h3>Claimed by ' + currentFeature.properties.state + '</h3>'+
+            '<h4> claim size: '+ currentFeature.properties.Qual_data_selection_claim_size + 'km2</h4>'+
+            '<h4> stakeholder: </br>' + currentFeature.properties.Qual_data_selection_dipl_note_state_1 +'</br>' + 
+              currentFeature.properties.Qual_data_selection_dipl_note_state_2 +'</br>' +
+              currentFeature.properties.Qual_data_selection_dipl_note_state_3 +'</br>'
+              + '</h4>')
           .addTo(map);
       }
     </script>
