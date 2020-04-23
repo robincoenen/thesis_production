@@ -1,4 +1,5 @@
 /* General */
+
 @font-face {
   font-family: "Simplon-Regular";
   src: url("./fonts/SimplonMono-Regular.woff") format("woff");
@@ -13,7 +14,9 @@ b {
   font-family: "Simplon-Bold";
 }
 
-html {background-color: black}
+html {
+  background-color: black;
+}
 
 body {
   font-family: "Simplon-Regular";
@@ -49,9 +52,8 @@ a {
   background-color: transparent;
 }
 
-
-#index{
-  z-index:9999;
+#index {
+  z-index: 9999;
 }
 
 /* Old LandingPage (Letter Style) */
@@ -105,11 +107,10 @@ p {
 
 /* LandingPage */
 
-.btn-outline-dark{
-margin-left:45%;
-margin-bottom: 15px;
-z-index:9999999999;
-
+.btn-outline-dark {
+  margin-left: 45%;
+  margin-bottom: 15px;
+  z-index: 9999999999;
 }
 
 #video-compare-container {
@@ -124,14 +125,14 @@ z-index:9999999999;
   position: relative;
   top: 0;
 }
-#video-clipper {
+#video-cover {
   width: 100%;
   position: absolute;
   top: 0;
   bottom: 0;
   overflow: hidden;
 }
-#video-clipper video {
+#video-cover video {
   width: 100%;
   position: absolute;
 }
@@ -176,8 +177,43 @@ h6 {
   color: black;
 }
 
-/* Vignette 3 */
 
-#my_dataviz {
+/* Vignette 2 */
+#zoomImg {
+  position:absolute;
+  z-index: -9999;
+  width: 100%;
+  margin-top:68px;
+}
+
+
+/* Vignette 3 */
+h6{
+  font-size:30px;
+  color: white;
+  background-color: black;
+  font-size:30px;
+  margin-top:20%;
+  padding-left:10%;
+  padding-right:20%;
+}
+
+#area_size {
   background-color: black;
 }
+
+
+/* Vignette 3 */
+
+/* Vignette 4 */
+
+/* Vignette 5 */
+
+/* Vignette 6 */
+
+#diplomatic_Notes{
+  background-color: black;
+
+}
+
+/* Dashboard */

@@ -17,10 +17,12 @@
     <body>
       
         <div id="video-compare-container">
+            <!-- Mask -->
             <video  sound muted loop autoplay poster="./img/index/02_mask.png">
               <source src=./img/index/02_Mask.mp4>
             </video>
-           <div id="video-clipper">
+            <!-- Cover -->
+           <div id="video-cover">
               <video  muted loop autoplay poster="./img/index/01_cover.png">
                 <source src=./img/index/01_Cover.mp4>
               </video>
@@ -29,24 +31,23 @@
                 <a class="btn btn-outline-dark" id="landing" href="vignette_1.html">Launch</a>
 
               <script>
+                    //Mouse XRay Effect  
                     function trackLocation(e) {
                     var rect = videoContainer.getBoundingClientRect(),
                           position = ((e.pageY - rect.top) / videoContainer.offsetHeight)*100;
                     if (position <= 100) { 
-                    videoClipper.style.height = position+"%";
-                    clippedVideo.style.height = ((100/position)*100)+"%";
-                    clippedVideo.style.zIndex = 3;
+                    videoCover.style.height = position+"%";
+                    coveredVideo.style.height = ((100/position)*100)+"%";
+                    coveredVideo.style.zIndex = 3;
                         }
                     }
                     var videoContainer = document.getElementById("video-compare-container"),
-                    videoClipper = document.getElementById("video-clipper"),
-                    clippedVideo = videoClipper.getElementsByTagName("video")[0];
+                    videoCover = document.getElementById("video-cover"),
+                    coveredVideo = videoCover.getElementsByTagName("video")[0];
                     videoContainer.addEventListener( "mousemove", trackLocation, false); 
                     videoContainer.addEventListener("touchstart",trackLocation,false);
                     videoContainer.addEventListener("touchmove",trackLocation,false);
                     </script>
-
-
-
+                    
     </body>
 </html>

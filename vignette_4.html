@@ -71,7 +71,8 @@
       
 
           <!-- VIGNETTE CONTENT HERE -->
-          <div id="my_dataviz"></div>
+          <!-- modified from https://www.d3-graph-gallery.com -->
+          <div id="area_size"></div>
 
 <style>
 .node:hover{
@@ -83,34 +84,25 @@
 
 <script>
 
-// set the dimensions and margins of the graph
 var width = 1800
 var height = 1080
 
-// append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
+var svg = d3.select("#area_size")
   .append("svg")
     .attr("width", width)
     .attr("height", height)
 
-// Read data
 d3.csv("./data/claim-size.csv", function(data) {
 
-  // Filter a bit the data -> more than 1 million inhabitants
+  // Filter needed?
   data = data.filter(function(d){ return d.value>100 })
-
-  // Color palette for continents?
-  //var color = d3.scaleOrdinal()
-  //  .domain(["Asia", "Europe", "Africa", "Oceania", "Americas"])
-  //  .range(d3.schemeSet1);
 
   // Size scale for countries
   var size = d3.scaleLinear()
     .domain([0, 1000000])
-    .range([7,55])  // circle will be between 7 and 55 px wide
+    .range([7,55])  
 
-  // create a tooltip
-  var Tooltip = d3.select("#my_dataviz")
+  var Tooltip = d3.select("#area_size")
     .append("div")
     .style("opacity", 0)
     .attr("class", "tooltip")
@@ -120,7 +112,7 @@ d3.csv("./data/claim-size.csv", function(data) {
     .style("border-radius", "5px")
     .style("padding", "5px")
 
-  // Three function that change the tooltip when user hover / move / leave a cell
+  // Interactivity
   var mouseover = function(d) {
     Tooltip
       .style("opacity", 1)
@@ -136,7 +128,7 @@ d3.csv("./data/claim-size.csv", function(data) {
       .style("opacity", 0)
   }
 
-  // Initialize the circle: all located at the center of the svg area
+  // Circles
   var node = svg.append("g")
     .selectAll("circle")
     .data(data)
@@ -150,22 +142,20 @@ d3.csv("./data/claim-size.csv", function(data) {
       .style("fill-opacity", 1)
       .attr("stroke", "black")
       .style("stroke-width", 2)
-      .on("mouseover", mouseover) // What to do when hovered
+      .on("mouseover", mouseover) 
       .on("mousemove", mousemove)
       .on("mouseleave", mouseleave)
-      .call(d3.drag() // call specific function when circle is dragged
+      .call(d3.drag() 
            .on("start", dragstarted)
            .on("drag", dragged)
            .on("end", dragended));
 
-  // Features of the forces applied to the nodes:
+  // Force
   var simulation = d3.forceSimulation()
       .force("center", d3.forceCenter().x(width / 2.2).y(height / 2)) // Attraction to the center of the svg area
       .force("charge", d3.forceManyBody().strength(0.1)) // Nodes are attracted one each other of value is > 0
       .force("collide", d3.forceCollide().strength(.1).radius(function(d){ return (size(d.value)+3) }).iterations(1)) // Force that avoids circle overlapping
 
-  // Apply these forces to the nodes and update their positions.
-  // Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.
   simulation
       .nodes(data)
       .on("tick", function(d){
@@ -174,7 +164,7 @@ d3.csv("./data/claim-size.csv", function(data) {
             .attr("cy", function(d){ return d.y; })
       });
 
-  // What happens when a circle is dragged?
+  // Circle Drag
   function dragstarted(d) {
     if (!d3.event.active) simulation.alphaTarget(.03).restart();
     d.fx = d.x;
@@ -193,9 +183,6 @@ d3.csv("./data/claim-size.csv", function(data) {
 })
 
 </script>
-
-
-
 
    </html>
   </body>

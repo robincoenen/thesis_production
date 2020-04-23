@@ -1,161 +1,207 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
 
-  <title>Vignette_1</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-  <link rel="stylesheet" href="css/main.css" />
+    <title>Vignette_1</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
 
-	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-  <script src="libraries/leaflet-tilelayer-mask.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="libraries/leaflet-tilelayer-mask.js"></script>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <script  src="https://code.jquery.com/jquery-3.5.0.js"></script>
-
-  
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   </head>
   <body>
+    <!-- VIGNETTE CONTENT HERE -->
 
-   
-
-          <!-- VIGNETTE CONTENT HERE -->
-
-  <div id="map" style="position:absolute;top:50px;left:0;right:0;bottom:0;z-index:-9999;"></div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <div
+      id="map"
+      style="
+        position: absolute;
+        top: 50px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -9999;
+      "
+    ></div>
     <script>
-
-
-      //LAYER TRIAL\\\
-      var myStyle =  {
-    fillColor: "#fff",
-    color: "#fdbe21",
-    weight: 0.9,
-    opacity: 1,
-    fillOpacity: 1
-  };
+      // All Claims Toggle Layer
+      var claimsStyle = {
+        fillColor: "#fff",
+        color: "#fdbe21",
+        weight: 0.9,
+        opacity: 1,
+        fillOpacity: 1,
+      };
 
       $.getJSON("./data/allclaims_a.geojson", function (data) {
-    var allClaims = L.geoJSON(data,{style: myStyle});
-  
-    var noClaims = L.layerGroup([]);
-    var showClaims = L.layerGroup([allClaims]);
+        var allClaims = L.geoJSON(data, { style: claimsStyle });
 
-    
+        var noClaims = L.layerGroup([]);
+        var showClaims = L.layerGroup([allClaims]);
 
-var overlayMaps = {
-    "Dont show claims": noClaims,
-    "Show all claims": showClaims
-};
+        var overlayMaps = {
+          "Dont show claims": noClaims,
+          "Show all claims": showClaims,
+        };
 
-
-
+        // Cover Map
         var map = L.map("map", {
-            zoom: 3,
-            center: [35.6323, 139.768815],
-            maxZoom: 7,
-            minZoom: 3,
-            worldCopyJump:true
+          zoom: 3,
+          center: [35.6323, 139.768815],
+          maxZoom: 7,
+          minZoom: 3,
+          worldCopyJump: true,
         });
         map.zoomControl.setPosition("bottomright");
-        L.tileLayer('https://api.mapbox.com/styles/v1/vis-int/ck8qzjtmt0q3p1invzgkptzbo/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidmlzLWludCIsImEiOiJjanI2NWppYTIwNGR2NDRwaGI1N2xzZXBxIn0.dmZ6dkYdM95wixqH0mQb_w', {
-        }).addTo(map);
-    
-        var mask = L.tileLayer.mask('https://api.mapbox.com/styles/v1/vis-int/ck8sib48n12h91ilhpa6rk5jl/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidmlzLWludCIsImEiOiJjanI2NWppYTIwNGR2NDRwaGI1N2xzZXBxIn0.dmZ6dkYdM95wixqH0mQb_w', {
-            maskSize: 450,
-            maxZoom: 7,
-            maxNativeZoom: 7,
-            minZoom: 3,
-            layers: [noClaims],
-            worldCopyJump:true
-    
-        }).addTo(map);
-    
+        L.tileLayer(
+          "https://api.mapbox.com/styles/v1/vis-int/ck8qzjtmt0q3p1invzgkptzbo/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidmlzLWludCIsImEiOiJjanI2NWppYTIwNGR2NDRwaGI1N2xzZXBxIn0.dmZ6dkYdM95wixqH0mQb_w",
+          {}
+        ).addTo(map);
 
+        // Mask Map
+        var mask = L.tileLayer
+          .mask(
+            "https://api.mapbox.com/styles/v1/vis-int/ck8sib48n12h91ilhpa6rk5jl/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidmlzLWludCIsImEiOiJjanI2NWppYTIwNGR2NDRwaGI1N2xzZXBxIn0.dmZ6dkYdM95wixqH0mQb_w",
+            {
+              maskSize: 450,
+              maxZoom: 7,
+              maxNativeZoom: 7,
+              minZoom: 3,
+              layers: [noClaims],
+              worldCopyJump: true,
+            }
+          )
+          .addTo(map);
 
-        map.on("mousemove", function(e) {
-            mask.setCenter(e.containerPoint);
+        map.on("mousemove", function (e) {
+          mask.setCenter(e.containerPoint);
         });
 
+        // Marine Boundaries Data Layer
         $.getJSON("./data/testb.geojson", function (data) {
-    var borderdesc = L.geoJSON(data,
-    
-        {
-            onEachFeature: function onEachFeature(feature, layer) {
-                layer.setStyle({
-        stroke: true,
-        weight:30,
-        color: '#666',
-        opacity: 0.0,
-    }).bindTooltip('<h6><b>' + feature.properties.LINE_NAME + '</b><br>Description: ' + feature.properties.SOURCE1+'</h6>',{sticky: true, opacity: 1, direction: 'right'});
-        }
-        }).addTo(map);
+          var borderdesc = L.geoJSON(
+            data,
+            // Marine Boundaries invisble Styling (stroke bold for mouseover)
+            {
+              onEachFeature: function onEachFeature(feature, layer) {
+                layer
+                  .setStyle({
+                    stroke: true,
+                    weight: 30,
+                    color: "#666",
+                    opacity: 0.0,
+                  })
+                  .bindTooltip(
+                    "<h6><b>" +
+                      feature.properties.LINE_NAME +
+                      "</b><br>Description: " +
+                      feature.properties.SOURCE1 +
+                      "</h6>",
+                    { sticky: true, opacity: 1, direction: "right" }
+                  );
+              },
+            }
+          ).addTo(map);
 
-
-
-        L.control.layers(overlayMaps).addTo(map);
-
-
-});  
-
-       
-});
-
-
-
-
+          L.control.layers(overlayMaps).addTo(map);
+        });
+      });
     </script>
-   
 
-        <!-- NAVHBAR -->
+    <!-- NAVHBAR -->
 
-        <nav class="navbar fixed-top navbar-light bg-light">
-          <div class="d-flex justify-content-start">
-    
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#moreInfo" aria-expanded="false" aria-controls="collapseExample">
-              &oplus;
-              </button>
-    
-            <!-- Question here -->
-    
-            <span class="navbar-text">
-              is the sea a common property without borders?
-              </span>
-              </div>
-    
-            <!-- Previous/Next Links here -->
-    
-        <!--<a class="nav-link" href="#">Next Chapter</a>-->
-        <div class="d-flex justify-content-end">
-    
-        <a class="nav-link" href="index.html" >&lang;</a>
+    <nav class="navbar fixed-top navbar-light bg-light">
+      <div class="d-flex justify-content-start">
+        <button
+          class="btn btn-link"
+          type="button"
+          data-toggle="collapse"
+          data-target="#moreInfo"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          &oplus;
+        </button>
+
+        <!-- Question here -->
+
+        <span class="navbar-text">
+          is the sea a common property without borders?
+        </span>
+      </div>
+
+      <!-- Previous/Next Links here -->
+
+      <div class="d-flex justify-content-end">
+        <a class="nav-link" href="index.html">&lang;</a>
         <a class="nav-link" href="vignette_2.html">&rang;</a>
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#index" aria-expanded="false" aria-controls="collapseExample">
+        <button
+          class="btn btn-link"
+          type="button"
+          data-toggle="collapse"
+          data-target="#index"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
           {}
-          </button>  
-          </div> 
-      </nav>
-    
-            <!-- MoreInfo Content here -->
-     
+        </button>
+      </div>
+    </nav>
+
+    <!-- MoreInfo Content here -->
+
     <div class="collapse" id="moreInfo">
       <div class="card card-body">
-        AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-        AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-        AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-        AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-        AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus
+        terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+        labore wes anderson cred nesciunt sapiente ea proident. AAA pariatur
+        cliche reprehenderit, enim eiusmod high life accusamus terry richardson
+        ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
+        cred nesciunt sapiente ea proident. AAA pariatur cliche reprehenderit,
+        enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
+        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+        sapiente ea proident. AAA pariatur cliche reprehenderit, enim eiusmod
+        high life accusamus terry richardson ad squid. Nihil anim keffiyeh
+        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+        proident. AAA pariatur cliche reprehenderit, enim eiusmod high life
+        accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
+        craft beer labore wes anderson cred nesciunt sapiente ea proident.
       </div>
     </div>
-            <!-- Index Content here -->
   </body>
 </html>
