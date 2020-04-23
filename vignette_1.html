@@ -33,6 +33,32 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script>
+
+
+      //LAYER TRIAL\\\
+      var myStyle =  {
+    fillColor: "#fff",
+    color: "#fdbe21",
+    weight: 0.9,
+    opacity: 1,
+    fillOpacity: 1
+  };
+
+      $.getJSON("./data/allclaims_a.geojson", function (data) {
+    var allClaims = L.geoJSON(data,{style: myStyle});
+  
+    var noClaims = L.layerGroup([]);
+    var showClaims = L.layerGroup([allClaims]);
+
+    
+
+var overlayMaps = {
+    "Dont show claims": noClaims,
+    "Show all claims": showClaims
+};
+
+
+
         var map = L.map("map", {
             zoom: 3,
             center: [35.6323, 139.768815],
@@ -49,16 +75,19 @@
             maxZoom: 7,
             maxNativeZoom: 7,
             minZoom: 3,
+            layers: [noClaims],
             worldCopyJump:true
     
         }).addTo(map);
     
+
+
         map.on("mousemove", function(e) {
             mask.setCenter(e.containerPoint);
         });
 
         $.getJSON("./data/testb.geojson", function (data) {
-    var StratfordBoundary = L.geoJSON(data,
+    var borderdesc = L.geoJSON(data,
     
         {
             onEachFeature: function onEachFeature(feature, layer) {
@@ -70,19 +99,16 @@
     }).bindTooltip('<h6><b>' + feature.properties.LINE_NAME + '</b><br>Description: ' + feature.properties.SOURCE1+'</h6>',{sticky: true, opacity: 1, direction: 'right'});
         }
         }).addTo(map);
+
+
+
+        L.control.layers(overlayMaps).addTo(map);
+
+
 });  
 
        
-//        fetch("./data/testb.geojson")
-//.then(function(response) {
-//return response.json();
-//})
-//
-//.then(function(data) {
-//L.geoJSON(data,{}).bindTooltip(function (layer) {
-//    return layer.feature.properties.LINE_ID;
-//}).addTo(map);
-//});
+});
 
 
 
