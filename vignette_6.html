@@ -96,8 +96,6 @@
               // List of node names
               var allNodes = data.nodes.map(function(d){return d.name})
 
-
-
               // A linear scale to position the nodes on the X axis
               var x = d3.scalePoint()
                 .range([0, width])
@@ -122,6 +120,8 @@
 //    .attr("width", bbox.width + (padding*2))
 //    .attr("height", bbox.height + (padding*2))
 //    .style("fill", "red");
+
+
 
               //Add the circle for the nodes
              var nodes = svg
