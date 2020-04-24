@@ -1,7 +1,7 @@
 # With Compliments To The Secretary General
 ## Visualizing maritime claims in regard of the continental shelf at the UN
 
-![alt text](preview.pnng "Thesis preview image")
+![alt text](preview.png "Thesis preview image")
 
 
 
