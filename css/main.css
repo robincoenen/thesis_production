@@ -6,6 +6,11 @@
 }
 
 @font-face {
+  font-family: "Simplon-Medium_Italic";
+  src: url("./fonts/SimplonMono-MediumItalic.woff") format("woff");
+}
+
+@font-face {
   font-family: "Simplon-Bold";
   src: url("./fonts/SimplonMono-Bold.woff") format("woff2");
 }
@@ -28,7 +33,8 @@ body {
 }
 
 .navbar-text {
-  font-size: 24px;
+  font-family: "Simplon-Medium_Italic";
+  font-size: 28px;
   color: black !important;
   margin-left: 40px;
 }
