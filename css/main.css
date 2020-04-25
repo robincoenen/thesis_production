@@ -15,6 +15,38 @@
   src: url("./fonts/SimplonMono-Bold.woff") format("woff2");
 }
 
+#moreInfoButton{
+  position:fixed;
+  top:48%;
+  left: 1.8%;
+  z-index:990000000000000;
+  font-size:46px;
+  color:white;
+  mix-blend-mode: difference;
+  -webkit-filter: drop-shadow( 4px 4px 4px rgba(0, 0, 0, 0.9));
+  filter: drop-shadow( 4px 4px 4px rgba(0, 0, 0, 0.9));
+  border: none !important;
+}
+
+#InfoSidebar {
+  height: 250px;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  padding-top: 6.5%;
+  transition: 0.5s;
+}
+#InfoSidebar.in {
+  width: 40%;
+  height: 100vh;
+  padding-left: 7%;
+  padding-right: 1.8%;
+}
+
 b {
   font-family: "Simplon-Bold";
 }
@@ -31,7 +63,9 @@ body {
   margin-left: 0rem !important;
   margin-right: 0rem !important;
 }
-
+.navbar{
+  padding: .1rem 1rem;
+}
 .navbar-text {
   font-family: "Simplon-Medium_Italic";
   font-size: 28px;
@@ -40,10 +74,15 @@ body {
 }
 
 .btn-link {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 400;
   color: black;
   text-decoration: none;
+  border:1px solid black;;
+  padding-top:0.5px;
+  padding-bottom:0.5px;
+
+
 }
 
 .bg-light {
@@ -51,7 +90,7 @@ body {
 }
 
 a {
-  font-size: 24px;
+  font-size: 18px;
 
   color: black;
   text-decoration: none;
@@ -113,11 +152,7 @@ p {
 
 /* LandingPage */
 
-.btn-outline-dark {
-  margin-left: 45%;
-  margin-bottom: 15px;
-  z-index: 9999999999;
-}
+
 
 #video-compare-container {
   display: inline-block;
@@ -144,7 +179,13 @@ p {
 }
 
 #landing {
+  position: absolute;
+  z-index: 9999999999;
+  bottom: 25%;left:45%;
   font-size: 24px;
+  mix-blend-mode: difference;
+  color: white;
+  border-color: white;
 }
 
 /* Vignette 1 */
