@@ -19,7 +19,7 @@
     
 <style>
 	body { margin: 0; padding: 0; }
-	#map { position: absolute; top: 68px; bottom: 0; width: 100%; }
+	#map { position: absolute; top: 61px; bottom: 0; width: 100%; }
 </style>
   </head>
   <body>
@@ -121,7 +121,7 @@ a:hover {
   position: absolute;
   width: 33.3333%;
   height: 100%;
-  top: 68px;
+  top: 61px;
   left: 0;
   overflow: hidden;
   border-right: 1px solid rgba(0, 0, 0, 0.25);
@@ -147,6 +147,13 @@ a:hover {
   padding: 0 28px;
 }
 
+
+details .test  {
+  display: grid;
+  grid-template-columns: 100px 400px ;
+  border-right: 2px;
+}
+
 .listings {
   height: 100%;
   overflow: auto;
@@ -154,7 +161,6 @@ a:hover {
 }
 
 .listings .item {
-  display: block;
   border-bottom: 1px solid #eee;
   padding: 10px;
   padding-left:28px;
@@ -27329,27 +27335,26 @@ stores.features.forEach(function(store, i){
           link.innerHTML = prop.state;
 
           /* Add details to the individual listing. */
-          var details = listing.appendChild(document.createElement('div'));
-    details.innerHTML = "<em> in regard of " + prop.Qual_data_selection_anno + "</em></br>"
+          var claimContent = listing.appendChild(document.createElement('div'));
+    claimContent.innerHTML = "<em> in regard of " + prop.Qual_data_selection_anno + "</em></br>"
                         + "<b>"+prop.Qual_data_selection_sub_date + "</b> claim submitted</br>"
-                        + "<details></br> <b>"+prop.Qual_data_selection_UN_note_date + "</b></br>" 
-                        + "UN Circular Note informing all Member States about the Claim</br></br>"
-                        + "<b>" + prop.Qual_data_selection_dipl_note_date_1 + "</b></br>"
+                        + "<details><div class='test'> <b>"+prop.Qual_data_selection_UN_note_date + "</b>" 
+                        + "UN Circular Note informing all Member States about the Claim"
+                        + "<b>" + prop.Qual_data_selection_dipl_note_date_1 + "</b>"
                         + prop.Qual_data_selection_dipl_note_state_1 + " reacts:</br>"
-                        + prop.Qual_data_selection_dipl_note_cont_1+"</br></br>"
-                        + "<b>" + prop.Qual_data_selection_dipl_note_date_2 + "</b></br>"
+                        + prop.Qual_data_selection_dipl_note_cont_1+ "</br>" 
+                        + "<b>" + prop.Qual_data_selection_dipl_note_date_2 + "</b>"
                         + prop.Qual_data_selection_dipl_note_state_2 + " reacts:</br>"
-                        + prop.Qual_data_selection_dipl_note_cont_2+"</br></br>"
-                        + "<b>" + prop.Qual_data_selection_dipl_note_date_3 + "</b></br>"
+                        + prop.Qual_data_selection_dipl_note_cont_2 +
+                        + "<b>" + prop.Qual_data_selection_dipl_note_date_3 + "</b>"
                         + prop.Qual_data_selection_dipl_note_state_3 + " reacts:</br>"
-                        + prop.Qual_data_selection_dipl_note_cont_3+"</br></br>"
-                        + "<b>" + prop.Qual_data_selection_dipl_note_date_4 + "</b></br>"
+                        + prop.Qual_data_selection_dipl_note_cont_3 +
+                        + "<b>" + prop.Qual_data_selection_dipl_note_date_4 +"</b>"
                         + prop.Qual_data_selection_dipl_note_state_4 + " reacts:</br>"
-                        + prop.Qual_data_selection_dipl_note_cont_4+"</br></br>"
-                        + "<b>" + prop.Qual_data_selection_dipl_note_date_5 + "</b></br>"
-                        + prop.Qual_data_selection_dipl_note_state_5 + " reacts:</br>"
-                        + prop.Qual_data_selection_dipl_note_cont_5+"</br></br>";
-
+                        + prop.Qual_data_selection_dipl_note_cont_4+
+                        + "<b>" + prop.Qual_data_selection_dipl_note_date_5 + "</b>"
+                        + prop.Qual_data_selection_dipl_note_state_5 + "reacts:</br>"
+                        + prop.Qual_data_selection_dipl_note_cont_5+"</div>";
           /**
            * Listen to the element and when it is clicked, do four things:
            * 1. Update the `currentFeature` to the store associated with the clicked link

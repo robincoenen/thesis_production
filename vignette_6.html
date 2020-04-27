@@ -39,7 +39,7 @@
   <body>
     <!-- NAVHBAR -->
 
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar fixed-top navbar-light bg-light">
       <div class="d-flex justify-content-start">
         <!-- Question here -->
 
@@ -205,6 +205,7 @@
         var selector = $(this).data("target");
         $(selector).toggleClass("in");
       });
+
     </script>
 
     <!-- Index Content here -->
@@ -231,143 +232,129 @@
     </div>
 
     <!-- VIGNETTE CONTENT HERE -->
+<div id="diplomatic_Notes"></div>
+   <script>
+// set the dimensions and margins of the graph
+var margin = {top: 0, right: 160, bottom: 150, left: 90},
+  width = 1790 - margin.left - margin.right,
+  height = 900 - margin.top - margin.bottom;
 
-    <div id="diplomatic_Notes"></div>
+// append the svg object to the body of the page
+var svg = d3.select("#diplomatic_Notes")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
 
-    <script>
-      // modified from https://www.d3-graph-gallery.com/
-      var margin = { top: 20, right: 30, bottom: 150, left: 50 },
-        width = 1500 - margin.left - margin.right,
-        height = 860 - margin.top - margin.bottom;
+//data
+d3.json("./data/stakeholder_globalnorth-vs-south_group.json", function( data) {
 
-      // append the svg object to the body of the page
-      var svg = d3
-        .select("#diplomatic_Notes")
-        .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  // List of node names
+  var allNodes = data.nodes.map(function(d){return d.name})
 
-      d3.json("./data/stakeholder_globalnorth-vs-south.json", function (data) {
-        // List of node names
-        var allNodes = data.nodes.map(function (d) {
-          return d.name;
-        });
+  // List of groups
+  var allGroups = data.nodes.map(function(d){return d.gr})
+  allGroups = [...new Set(allGroups)]
 
-        // A linear scale to position the nodes on the X axis
-        var x = d3.scalePoint().range([0, width]).domain(allNodes);
+  // A color scale for groups:
+  var color = d3.scaleOrdinal()
+    .domain(allGroups)
+    .range(["#fff000", "#000fff" ]);
 
-        svg
-          .append("g")
-          .attr("transform", "translate(-5,668)")
-          .call(d3.axisBottom(x))
-          .selectAll("text")
-          .attr("transform", "translate(-10,10)rotate(-90)")
-          .style("text-anchor", "end")
-          .style("font-size", 12)
-          .style("fill", "white");
+  // A linear scale for node size
+  var size = d3.scaleLinear()
+    .domain([1,10])
+    .range([2,10]);
 
-        //Add the circle for the nodes
-        var nodes = svg
-          .selectAll("mynodes")
-          .data(data.nodes)
-          .enter()
-          .append("circle")
-          .attr("cx", function (d) {
-            return x(d.name);
-          })
-          .attr("cy", height - 30)
-          .attr("r", 8)
-          .style("fill", "#fff");
+  // A linear scale to position the nodes on the X axis
+  var x = d3.scalePoint()
+    .range([0, width])
+    .domain(allNodes)
 
-        // Add links between nodes.
-        var idToNode = {};
-        data.nodes.forEach(function (n) {
-          idToNode[n.id] = n;
-        });
+//link between this id and the name
+  var idToNode = {};
+  data.nodes.forEach(function (n) {
+    idToNode[n.id] = n;
+  });
 
-        // Add the links
-        var links = svg
-          .selectAll("mylinks")
-          .data(data.links)
-          .enter()
-          .append("path")
-          .attr("d", function (d) {
-            start = x(idToNode[d.source].name);
-            end = x(idToNode[d.target].name);
-            return [
-              "M",
-              start,
-              height - 30,
-              "A",
-              (start - end) / 1.95,
-              ",",
-              (start - end) / 2,
-              0,
-              0,
-              ",",
-              start < end ? 1 : 0,
-              end,
-              ",",
-              height - 30,
-            ].join(" ");
-          })
-          .style("fill", "none")
-          .attr("stroke", "#fdbe21")
-          .attr("stroke-width", 1);
+  // Add the links
+  var links = svg
+    .selectAll('mylinks')
+    .data(data.links)
+    .enter()
+    .append('path')
+    .attr('d', function (d) {
+      start = x(idToNode[d.source].name)
+      end = x(idToNode[d.target].name)  
+      return ['M', start, height-30,    
+        'A',                            
+        (start - end)/1.95, ',',    
+        (start - end)/1.95, 0, 0, ',',
+        start < end ? 1 : 0, end, ',', height-30] 
+        .join(' ');
+    })
+    .style("fill", "none")
+    .attr("stroke", "white")
+    .style("stroke-width", 1)
 
-        // Add the highlighting functionality
-        nodes
-          .on("mouseover", function (d) {
-            // Highlight the nodes
-            nodes.style("fill", "#fff");
-            d3.select(this).style("fill", "#fdbe21");
-            // Highlight the connections
-            links
-              .style("stroke", function (link_d) {
-                return link_d.source === d.id || link_d.target === d.id
-                  ? "#fdbe21"
-                  : "#fff";
-              })
-              .style("stroke-width", function (link_d) {
-                return link_d.source === d.id || link_d.target === d.id
-                  ? 5
-                  : 0.3;
-              });
-          })
-          .on("mouseout", function (d) {
-            nodes.style("fill", "#fff");
-            links.style("stroke", "#fdbe21").style("stroke-width", "1");
-          });
-      });
+  // Add the circle for the nodes
+  var nodes = svg
+    .selectAll("mynodes")
+    .data(data.nodes.sort(function(a,b) { return +b.n - +a.n }))
+    .enter()
+    .append("circle")
+      .attr("cx", function(d){ return(x(d.name))})
+      .attr("cy", height-30)
+      .attr("r", 7)
+      .style("fill", function(d){ return color(d.gr)})
+      .attr("stroke", "white")
 
-      svg
-        .append("text")
-        .attr("text-anchor", "left")
-        .style("fill", "#B8B8B8")
-        .style("font-size", "17px")
-        .attr("x", 278)
-        .attr("y", 10)
-        .html("Global South");
+  // And give them a label
+  var labels = svg
+    .selectAll("mylabels")
+    .data(data.nodes)
+    .enter()
+    .append("text")
+      .attr("x", 0)
+      .attr("y", 0)
+      .text(function(d){ return(d.name)} )
+      .style("fill", "white")
+      .style("text-anchor", "end")
+      .attr("transform", function(d){ return( "translate(" + (x(d.name)) + "," + (height-18) + ")rotate(-90)")})
+      .style("font-size", 14)
 
-      svg
-        .append("text")
-        .attr("text-anchor", "right")
-        .style("fill", "#B8B8B8")
-        .style("font-size", "17px")
-        .attr("x", 105)
-        .attr("y", 10)
-        .html("Global North");
+  // Add the highlighting functionality
+  nodes
+    .on('mouseover', function (d) {
+      // Highlight the nodes: every node is green except of him
+      nodes
+        .style('opacity', 1)
+      d3.select(this)
+        .style('opacity', 1)
+      // Highlight the connections
+      links
+        .style('stroke', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? color(d.gr) : '#b8b8b8';})
+        .style('stroke-opacity', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? 1 : .2;})
+        .style('stroke-width', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? 4 : 1;})
+      labels
+        .style("font-size", function(label_d){ return label_d.name === d.name ? 18 : 13 } )
+        .attr("y", function(label_d){ return label_d.name === d.name ? 2 : 0 } )
 
-      svg
-        .append("line")
-        .attr("x1", 253.57)
-        .attr("x2", 253.57)
-        .attr("y1", 0)
-        .attr("y2", 668)
-        .attr("stroke", "white")
-        .attr("stroke-width", 16);
-    </script>
+    })
+    .on('mouseout', function (d) {
+      nodes.style('opacity', 1)
+      links
+        .style('stroke', 'white')
+        .style('stroke-opacity', .8)
+        .style('stroke-width', '1')
+      labels
+        .style("font-size", 14 )
+
+    })
+})
+
+</script>
   </body>
 </html>
