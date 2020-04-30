@@ -14,7 +14,8 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src='./libraries/src/okzoom.min.js'></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
   </head>
   <body>
 
@@ -22,11 +23,10 @@
 
           <nav class="navbar fixed-top navbar-light bg-light">
             <div class="d-flex justify-content-start">
-
             <!-- Question here -->
       
             <span class="navbar-text">
-              Is article 76 key to the biggest landgrab after world war 2?
+              How much area is claimed by who?
               </span>
             </div>
 
@@ -69,108 +69,20 @@
       <!-- MoreInfo Content here -->
   
       <h5 id="InfoSidebar">
-        AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus
-        terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-        labore wes anderson cred nesciunt sapiente ea proident. AAA pariatur
-        cliche reprehenderit, enim eiusmod high life accusamus terry richardson
-        ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-        cred nesciunt sapiente ea proident. AAA pariatur cliche reprehenderit,
-        enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident. AAA pariatur cliche reprehenderit, enim eiusmod
-        high life accusamus terry richardson ad squid. Nihil anim keffiyeh
-        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-        proident. AAA pariatur cliche reprehenderit, enim eiusmod high life
-        accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident. AAA
-        pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore
-        wes anderson cred nesciunt sapiente ea proident. AAA pariatur cliche
-        reprehenderit, enim eiusmod high life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-        cred nesciunt sapiente ea proident. AAA pariatur cliche reprehenderit,
-        enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident. AAA pariatur cliche reprehenderit, enim eiusmod
-        high life accusamus terry richardson ad squid. Nihil anim keffiyeh
-        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-        proident. AAA pariatur cliche reprehenderit, enim eiusmod high life
-        accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident. AAA
-        pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore
-        wes anderson cred nesciunt sapiente ea proident. AAA pariatur cliche
-        reprehenderit, enim eiusmod high life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-        cred nesciunt sapiente ea proident AAA pariatur cliche reprehenderit,
-        enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident. AAA pariatur cliche reprehenderit, enim eiusmod
-        high life accusamus terry richardson ad squid. Nihil anim keffiyeh
-        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-        proident. AAA pariatur cliche reprehenderit, enim eiusmod high life
-        accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident. AAA
-        pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore
-        wes anderson cred nesciunt sapiente ea proident. AAA pariatur cliche
-        reprehenderit, enim eiusmod high life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-        cred nesciunt sapiente ea proident. AAA pariatur cliche reprehenderit,
-        enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident AAA pariatur cliche reprehenderit, enim eiusmod
-        high life accusamus terry richardson ad squid. Nihil anim keffiyeh
-        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-        proident. AAA pariatur cliche reprehenderit, enim eiusmod high life
-        accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident. AAA
-        pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore
-        wes anderson cred nesciunt sapiente ea proident. AAA pariatur cliche
-        reprehenderit, enim eiusmod high life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-        cred nesciunt sapiente ea proident. AAA pariatur cliche reprehenderit,
-        enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident. AAA pariatur cliche reprehenderit, enim eiusmod
-        high life accusamus terry richardson ad squid. Nihil anim keffiyeh
-        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-        proident AAA pariatur cliche reprehenderit, enim eiusmod high life
-        accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident. AAA
-        pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore
-        wes anderson cred nesciunt sapiente ea proident. AAA pariatur cliche
-        reprehenderit, enim eiusmod high life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-        cred nesciunt sapiente ea proident. AAA pariatur cliche reprehenderit,
-        enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident. AAA pariatur cliche reprehenderit, enim eiusmod
-        high life accusamus terry richardson ad squid. Nihil anim keffiyeh
-        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-        proident. AAA pariatur cliche reprehenderit, enim eiusmod high life
-        accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident AAA
-        pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore
-        wes anderson cred nesciunt sapiente ea proident. AAA pariatur cliche
-        reprehenderit, enim eiusmod high life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-        cred nesciunt sapiente ea proident. AAA pariatur cliche reprehenderit,
-        enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident. AAA pariatur cliche reprehenderit, enim eiusmod
-        high life accusamus terry richardson ad squid. Nihil anim keffiyeh
-        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-        proident. AAA pariatur cliche reprehenderit, enim eiusmod high life
-        accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident. AAA
-        pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore
-        wes anderson cred nesciunt sapiente ea proident
-      </h5>
+        Facsimile
+        <hr>
+        <img src="./img/content/coordinates.png" width="400" height="auto">
+        </br>
+        </br>
+        Example of Coordinates provided within the "Executive Summary" of a Claim in regard of the continental shelf
+        </br>
+        </br>
+        Context
+        <hr>
+        At the moment there are 85 claims submitted at the UN in regard of the contintental shelf. These claims are made public as "Executive Summaries". These summaries also contain the coordinates of the claims. All 85 claims were digitized and geopgraphically localized. This allowed to calculate the area size of all claims. 
+        </br>
+         </br>
+    </h5>
     </div>
   
       <script>
@@ -179,7 +91,7 @@
           $(selector).toggleClass("in");
         });
       </script>
-            <!-- Index Content here -->
+                  <!-- Index Content here -->
       
       <div class="collapse" id="index">
         <div class="card card-body">
@@ -194,10 +106,134 @@
       
 
           <!-- VIGNETTE CONTENT HERE -->
-          <h6>According to Article 76, coastal states can - under certain geological conditions - extend their juridical Continental Shelf and thus gain marine sovereignty rights beyond the 200-nautical-mile limit of the Exclusive Economic Zone (EEZ)</h6>
+          <!-- modified from https://www.d3-graph-gallery.com -->
+          <div id="area_size"></div>
+
+<style>
+.node:hover{
+  stroke-width: 7px !important;
+  opacity: 1 !important;
+}
+</style>
+
+
+<script>
+
+var width = 1800
+var height = 1060
+
+var svg = d3.select("#area_size")
+  .append("svg")
+    .attr("width", width)
+    .attr("height", height)
+
+d3.csv("./data/claim-size_2.csv", function(data) {
+
+  // Filter needed?
+  data = data.filter(function(d){ return d.value>100 })
+
+  // Size scale for countries
+  var size = d3.scaleLinear()
+    .domain([0, 1000000])
+    .range([7,55])  
+
+  var Tooltip = d3.select("#area_size")
+    .append("div")
+    .style("opacity", 0)
+    .attr("class", "tooltip")
+    .style("background-color", "white")
+    .style("border", "solid")
+    .style("border-width", "2px")
+    .style("border-radius", "5px")
+    .style("padding", "5px")
+
+  // Interactivity
+  var mouseover = function(d) {
+    Tooltip
+      .style("opacity", 1)
+  }
+  var mousemove = function(d) {
+    Tooltip
+      .html('<u>' + d.key + '</u>' + "<br>" + d.value + " km2")
+      .style("left", (d3.mouse(this)[0]+20) + "px")
+      .style("top", (d3.mouse(this)[1]) + "px")
+  }
+  var mouseleave = function(d) {
+    Tooltip
+      .style("opacity", 0)
+  }
+
+  // Circles
+  var node = svg.append("g")
+    .selectAll("circle")
+    .data(data)
+    .enter()
+    .append("circle")
+      .attr("class", "node")
+      .attr("r", function(d){ return size(d.value)})
+      .attr("cx", width / 2)
+      .attr("cy", height / 2)
+      .style("fill", "white")
+      .style("fill-opacity", 1)
+      .attr("stroke", "black")
+      .style("stroke-width", 2)
+      .on("mouseover", mouseover) 
+      .on("mousemove", mousemove)
+      .on("mouseleave", mouseleave)
+      .call(d3.drag() 
+           .on("start", dragstarted)
+           .on("drag", dragged)
+           .on("end", dragended));
+
+  // Force
+
+
+//var simulation = d3.forceSimulation()
+//    .force("center", d3.forceCenter().x(width / 2.2).y(height / 2)) // Attraction to the center of the svg area
+//    .force("charge", d3.forceManyBody().strength(0.1)) // Nodes are attracted one each other of value is > 0
+//    .force("collide", d3.forceCollide().strength(.1).radius(function(d){ return (size(d.value)+3) }).iterations(1)) // Force that avoids circle overlapping
+//
+var x = d3.scaleOrdinal()
+  .domain([1, 2])
+  .range([450, 900])
+
+
+var simulation = d3.forceSimulation()
+    .force("x", d3.forceX().strength(0.05).x( function(d){ return x(d.category) } ))
+    .force("y", d3.forceY().strength(0.05).y( height/2 ))
+    .force("center", d3.forceCenter().x(width / 2).y(height / 2)) // Attraction to the center of the svg area
+    .force("charge", d3.forceManyBody().strength(0.1  )) // Nodes are attracted one each other of value is > 0
+    .force("collide", d3.forceCollide().strength(.1).radius(function(d){ return (size(d.value)+3) }).iterations(2)) // Force that avoids circle overlapping
+
+// Apply these forces to the nodes and update their positions.
+// Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.
+simulation
+    .nodes(data)
+    .on("tick", function(d){
+      node
+          .attr("cx", function(d){ return d.x; })
+          .attr("cy", function(d){ return d.y; })
+    });
+
+// What happens when a circle is dragged?
+function dragstarted(d) {
+  if (!d3.event.active) simulation.alphaTarget(.03).restart();
+  d.fx = d.x;
+  d.fy = d.y;
+}
+function dragged(d) {
+  d.fx = d3.event.x;
+  d.fy = d3.event.y;
+}
+function dragended(d) {
+  if (!d3.event.active) simulation.alphaTarget(.03);
+  d.fx = null;
+  d.fy = null;
+}
+})
+
+</script>
+
    </html>
-
-
-
   </body>
 </html>

@@ -1,47 +1,72 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
 
     <title>Vignette_2</title>
     <link rel="stylesheet" href="css/main.css" />
 
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://d3js.org/d3.v4.js"></script>
-<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./libraries/src/okzoom.min.js"></script>
   </head>
   <body>
+    <!-- NAVHBAR -->
 
-          <!-- NAVHBAR -->
+    <nav class="navbar fixed-top navbar-light bg-light">
+      <div class="d-flex justify-content-start">
 
-          <nav class="navbar fixed-top navbar-light bg-light">
-            <div class="d-flex justify-content-start">
-            <!-- Question here -->
-      
-            <span class="navbar-text">
-              How much area is claimed by who?
-              </span>
-            </div>
+        <!-- Question here -->
 
-            <!-- Previous/Next Links here -->
-      
-        <div class="d-flex justify-content-end">
-        <a class="nav-link" href="vignette_3.html" >PREVIOUS</a>
+        <span class="navbar-text">
+          Does the UNCLOS aggregate or encounter existing inequalities?
+        </span>
+      </div>
+
+      <!-- Previous/Next Links here -->
+
+      <div class="d-flex justify-content-end">
+        <a class="nav-link" href="vignette_3.html">PREVIOUS</a>
         <a class="nav-link" href="vignette_5.html">NEXT</a>
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#index" aria-expanded="false">
+        <button
+          class="btn btn-link"
+          type="button"
+          data-toggle="collapse"
+          data-target="#index"
+          aria-expanded="false"
+        >
           INDEX
-          </button>   
-        </div>
-      </nav>
-      
-      <button
+        </button>
+      </div>
+    </nav>
+
+    <button
       class="btn btn-link"
       type="button"
       id="moreInfoButton"
@@ -49,279 +74,72 @@
       data-target="#InfoSidebar"
       aria-expanded="false"
       aria-controls="collapseExample"
+    >
+      <svg
+        class="bi bi-plus-circle-fill"
+        width="1em"
+        height="1em"
+        viewBox="0 0 16 16"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          class="bi bi-plus-circle-fill"
-          width="1em"
-          height="1em"
-          viewBox="0 0 16 16"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M16 8A8 8 0 110 8a8 8 0 0116 0zM8.5 4a.5.5 0 00-1 0v3.5H4a.5.5 0 000 1h3.5V12a.5.5 0 001 0V8.5H12a.5.5 0 000-1H8.5V4z"
-            clip-rule="evenodd"
-          />
-        </svg>
-      </button>
-  
-      <!-- MoreInfo Content here -->
-  
+        <path
+          fill-rule="evenodd"
+          d="M16 8A8 8 0 110 8a8 8 0 0116 0zM8.5 4a.5.5 0 00-1 0v3.5H4a.5.5 0 000 1h3.5V12a.5.5 0 001 0V8.5H12a.5.5 0 000-1H8.5V4z"
+          clip-rule="evenodd"
+        />
+      </svg>
+    </button>
+
+    <!-- MoreInfo Content here -->
+
       <h5 id="InfoSidebar">
-        AAA pariatur cliche reprehenderit, enim eiusmod high life accusamus
-        terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-        labore wes anderson cred nesciunt sapiente ea proident. AAA pariatur
-        cliche reprehenderit, enim eiusmod high life accusamus terry richardson
-        ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-        cred nesciunt sapiente ea proident. AAA pariatur cliche reprehenderit,
-        enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident. AAA pariatur cliche reprehenderit, enim eiusmod
-        high life accusamus terry richardson ad squid. Nihil anim keffiyeh
-        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-        proident. AAA pariatur cliche reprehenderit, enim eiusmod high life
-        accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident. AAA
-        pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore
-        wes anderson cred nesciunt sapiente ea proident. AAA pariatur cliche
-        reprehenderit, enim eiusmod high life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-        cred nesciunt sapiente ea proident. AAA pariatur cliche reprehenderit,
-        enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident. AAA pariatur cliche reprehenderit, enim eiusmod
-        high life accusamus terry richardson ad squid. Nihil anim keffiyeh
-        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-        proident. AAA pariatur cliche reprehenderit, enim eiusmod high life
-        accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident. AAA
-        pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore
-        wes anderson cred nesciunt sapiente ea proident. AAA pariatur cliche
-        reprehenderit, enim eiusmod high life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-        cred nesciunt sapiente ea proident AAA pariatur cliche reprehenderit,
-        enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident. AAA pariatur cliche reprehenderit, enim eiusmod
-        high life accusamus terry richardson ad squid. Nihil anim keffiyeh
-        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-        proident. AAA pariatur cliche reprehenderit, enim eiusmod high life
-        accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident. AAA
-        pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore
-        wes anderson cred nesciunt sapiente ea proident. AAA pariatur cliche
-        reprehenderit, enim eiusmod high life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-        cred nesciunt sapiente ea proident. AAA pariatur cliche reprehenderit,
-        enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident AAA pariatur cliche reprehenderit, enim eiusmod
-        high life accusamus terry richardson ad squid. Nihil anim keffiyeh
-        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-        proident. AAA pariatur cliche reprehenderit, enim eiusmod high life
-        accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident. AAA
-        pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore
-        wes anderson cred nesciunt sapiente ea proident. AAA pariatur cliche
-        reprehenderit, enim eiusmod high life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-        cred nesciunt sapiente ea proident. AAA pariatur cliche reprehenderit,
-        enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident. AAA pariatur cliche reprehenderit, enim eiusmod
-        high life accusamus terry richardson ad squid. Nihil anim keffiyeh
-        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-        proident AAA pariatur cliche reprehenderit, enim eiusmod high life
-        accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident. AAA
-        pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore
-        wes anderson cred nesciunt sapiente ea proident. AAA pariatur cliche
-        reprehenderit, enim eiusmod high life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-        cred nesciunt sapiente ea proident. AAA pariatur cliche reprehenderit,
-        enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident. AAA pariatur cliche reprehenderit, enim eiusmod
-        high life accusamus terry richardson ad squid. Nihil anim keffiyeh
-        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-        proident. AAA pariatur cliche reprehenderit, enim eiusmod high life
-        accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident AAA
-        pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore
-        wes anderson cred nesciunt sapiente ea proident. AAA pariatur cliche
-        reprehenderit, enim eiusmod high life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-        cred nesciunt sapiente ea proident. AAA pariatur cliche reprehenderit,
-        enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident. AAA pariatur cliche reprehenderit, enim eiusmod
-        high life accusamus terry richardson ad squid. Nihil anim keffiyeh
-        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-        proident. AAA pariatur cliche reprehenderit, enim eiusmod high life
-        accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident. AAA
-        pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore
-        wes anderson cred nesciunt sapiente ea proident
+        Work in progress (Area size at the moment without claims)
       </h5>
     </div>
-  
-      <script>
-        $("[data-toggle='toggle']").click(function () {
-          var selector = $(this).data("target");
-          $(selector).toggleClass("in");
-        });
-      </script>
-                  <!-- Index Content here -->
-      
-      <div class="collapse" id="index">
-        <div class="card card-body">
-          <p class="text-center" id="heading">With Compliments <br> to the Secretary General </p>
-      
-          <p class="text-right">last updated <br> 13.04.2020</p>
-          <p class="text-center" id="sub-heading">visualising maritime claims  <br> at the UN in regards <br> of the continental shelf</p>
-      
-          <p class="text-left"></p>  
-            </div>
-      </div>
-      
 
-          <!-- VIGNETTE CONTENT HERE -->
-          <!-- modified from https://www.d3-graph-gallery.com -->
-          <div id="area_size"></div>
-
-<style>
-.node:hover{
-  stroke-width: 7px !important;
-  opacity: 1 !important;
-}
-</style>
+        <!-- Index Content here -->
 
 
-<script>
+    <!-- VIGNETTE CONTENT HERE -->
+    <img src="./img/vignette_5/france.png" id="placeholderImg" />
 
-var width = 1800
-var height = 1060
+    <!-- Sideway Sidebar Prototype -->
+    <script>
+      $("[data-toggle='toggle']").click(function () {
+        var selector = $(this).data("target");
+        $(selector).toggleClass("in");
+      });
+    </script>
 
-var svg = d3.select("#area_size")
-  .append("svg")
-    .attr("width", width)
-    .attr("height", height)
+    <style>
+    
+      #InfoSidebar {
+        height: 250px;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: white;
+        overflow-x: hidden;
+        padding-top: 6.5%;
+        transition: 0.5s;
+      }
+      #InfoSidebar.in {
+        width: 40%;
+        height: 100vh;
+        padding-left: 7%;
+        padding-right: 1.8%;
+      }
 
-d3.csv("./data/claim-size_2.csv", function(data) {
+      #placeholderImg {
+        position: absolute;
+        z-index: -9999;
+        width: 95%;
+        margin-top: 68px;
+      }
 
-  // Filter needed?
-  data = data.filter(function(d){ return d.value>100 })
-
-  // Size scale for countries
-  var size = d3.scaleLinear()
-    .domain([0, 1000000])
-    .range([7,55])  
-
-  var Tooltip = d3.select("#area_size")
-    .append("div")
-    .style("opacity", 0)
-    .attr("class", "tooltip")
-    .style("background-color", "white")
-    .style("border", "solid")
-    .style("border-width", "2px")
-    .style("border-radius", "5px")
-    .style("padding", "5px")
-
-  // Interactivity
-  var mouseover = function(d) {
-    Tooltip
-      .style("opacity", 1)
-  }
-  var mousemove = function(d) {
-    Tooltip
-      .html('<u>' + d.key + '</u>' + "<br>" + d.value + " km2")
-      .style("left", (d3.mouse(this)[0]+20) + "px")
-      .style("top", (d3.mouse(this)[1]) + "px")
-  }
-  var mouseleave = function(d) {
-    Tooltip
-      .style("opacity", 0)
-  }
-
-  // Circles
-  var node = svg.append("g")
-    .selectAll("circle")
-    .data(data)
-    .enter()
-    .append("circle")
-      .attr("class", "node")
-      .attr("r", function(d){ return size(d.value)})
-      .attr("cx", width / 2)
-      .attr("cy", height / 2)
-      .style("fill", "white")
-      .style("fill-opacity", 1)
-      .attr("stroke", "black")
-      .style("stroke-width", 2)
-      .on("mouseover", mouseover) 
-      .on("mousemove", mousemove)
-      .on("mouseleave", mouseleave)
-      .call(d3.drag() 
-           .on("start", dragstarted)
-           .on("drag", dragged)
-           .on("end", dragended));
-
-  // Force
-
-
-//var simulation = d3.forceSimulation()
-//    .force("center", d3.forceCenter().x(width / 2.2).y(height / 2)) // Attraction to the center of the svg area
-//    .force("charge", d3.forceManyBody().strength(0.1)) // Nodes are attracted one each other of value is > 0
-//    .force("collide", d3.forceCollide().strength(.1).radius(function(d){ return (size(d.value)+3) }).iterations(1)) // Force that avoids circle overlapping
-//
-var x = d3.scaleOrdinal()
-  .domain([1, 2])
-  .range([450, 900])
-
-
-var simulation = d3.forceSimulation()
-    .force("x", d3.forceX().strength(0.05).x( function(d){ return x(d.category) } ))
-    .force("y", d3.forceY().strength(0.05).y( height/2 ))
-    .force("center", d3.forceCenter().x(width / 2).y(height / 2)) // Attraction to the center of the svg area
-    .force("charge", d3.forceManyBody().strength(0.1  )) // Nodes are attracted one each other of value is > 0
-    .force("collide", d3.forceCollide().strength(.1).radius(function(d){ return (size(d.value)+3) }).iterations(2)) // Force that avoids circle overlapping
-
-// Apply these forces to the nodes and update their positions.
-// Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.
-simulation
-    .nodes(data)
-    .on("tick", function(d){
-      node
-          .attr("cx", function(d){ return d.x; })
-          .attr("cy", function(d){ return d.y; })
-    });
-
-// What happens when a circle is dragged?
-function dragstarted(d) {
-  if (!d3.event.active) simulation.alphaTarget(.03).restart();
-  d.fx = d.x;
-  d.fy = d.y;
-}
-function dragged(d) {
-  d.fx = d3.event.x;
-  d.fy = d3.event.y;
-}
-function dragended(d) {
-  if (!d3.event.active) simulation.alphaTarget(.03);
-  d.fx = null;
-  d.fy = null;
-}
-})
-
-</script>
-
-   </html>
+    </style>
   </body>
 </html>
