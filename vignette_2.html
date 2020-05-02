@@ -102,19 +102,25 @@
 
           <!-- VIGNETTE CONTENT HERE -->
 
-          <img src="./img/vignette_2/unclos_words_b.jpg" id="zoomImg">
+          <img src="./img/vignette_2/cover.png" data-okimage="./img/vignette_2/mask.png" id="test">
 
           <script>
             $(function(){
-       $('img').okzoom({
-         scaleWidth: 15000,
-         width: 250,
-         height: 250,
-       });
-     });
-     
-     </script>
-   
+              $('#test').okzoom({
+                scaleWidth: 11000,
+                width: 350,
+                height: 350
+              });
+            });
+          </script>
+   <style>
+   #test {
+    position:absolute;
+  height: 100vh;
+  width: 100vw;
+  margin-top:68px;
+
+  }</style>
       
    </html>
    
