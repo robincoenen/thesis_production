@@ -35,6 +35,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="./libraries/src/okzoom.min.js"></script>
+    <script src="https://d3js.org/d3.v3.js"></script>
+
   </head>
   <body>
     <!-- NAVHBAR -->
@@ -102,7 +104,143 @@
 
 
     <!-- VIGNETTE CONTENT HERE -->
-    <img src="./img/vignette_5/france.png" id="placeholderImg" />
+    <div id="clickbutton"></div>
+    <div id="circlez">
+    </div>
+
+    <style>
+      #circlez{background-color:black; height:100vh;}
+      #clickbutton {position: fixed; background-color:white; color:black;font-size:14px; margin-left: 2%; margin-top:5.5%; border: 1px solid; padding: 3px;}
+      line    {stroke:#ddd;shape-rendering: crispEdges;}
+      text    {text-anchor:left;}
+      circle {fill:white;fill-opacity:1;}
+      .axis line {fill:none;stroke:#ddd;shape-rendering: crispEdges;}
+      .axis path  {fill:none;}
+      .axis text {font-size:0.7em;fill:#555;font-family:sans-serif}
+  </style>
+    <script>
+
+            //2 different data arrays
+            var dataArray9745000 = [11.1666666667,324.6666666667];
+            var dataArray13957671 = [11.1666666667,465];
+            
+            //globals
+           
+            
+            //create main svg element
+            var width = 1640
+            var height = 1080
+
+            var dataIndex=9745000;
+            var xBuffer=450;
+            var yBuffer=height/1.8;
+            var lineLength=400;
+            
+            var svg = d3.select("#circlez")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .style("background-color", "black") 
+
+                //OVERSEA
+                svg.append("text")
+                .attr("x",900)
+                .attr("y",120)
+                .text("9745000 km2 of Economic Exploitable Area")
+                .style("fill","white");
+
+                svg.append("text")
+                .attr("x",900)
+                .attr("y",100)
+                .text("France’s Oversea Territory:")
+                .style("fill","white");
+
+
+                //MAINLAD
+                svg.append("text")
+                .attr("x",300 )
+                .attr("y",100)
+                .text("France’s Mainland:")
+                .style("fill","white")
+
+                svg.append("text")
+                .attr("x",300)
+                .attr("y",120)
+                .text("335000 km2 of Economic Exploitable Area")
+                .style("fill","white")
+
+
+            //create axis line
+            
+            
+            //create basic circles
+            svg.append("g").selectAll("click")
+                .data(eval("dataArray"+dataIndex))
+                .enter()
+                .append("circle")
+                .attr("cx",function(d,i){
+                    var spacing = 600;
+                    return xBuffer+(i*spacing)
+                })
+                .attr("cy",yBuffer)
+                .attr("r",function(d,i){return d});
+            
+            //button to swap over datasets
+            d3.select("#clickbutton").append("click")
+                .text("With Claims")
+                .on("click",function(){
+                    //select new data
+                    if (dataIndex==9745000) {
+                        dataIndex=13957671;  
+                    } else   {
+                        dataIndex=9745000;
+                    }
+                    //rejoin data
+                    var circle = svg.select("g").selectAll("circle")
+                        .data(eval("dataArray"+dataIndex));
+                    
+                    circle.exit().remove();//remove unneeded circles
+                    circle.enter().append("circle")
+                        .attr("r",0);//create any new circles needed
+
+                    //update all circles to new positions
+                    circle.transition()
+                        .duration(400)
+                        .attr("cx",function(d,i){
+                            var spacing = 600;
+                            return xBuffer+(i*spacing)
+                        })
+                        .attr("cy",yBuffer)
+                        .attr("r",function(d,i){return d});
+
+                    d3.select("text").text(dataIndex+" km2 of Economic Exploitable Area");
+
+                });//end click function
+
+            
+        </script>
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Sideway Sidebar Prototype -->
     <script>
@@ -113,7 +251,6 @@
     </script>
 
     <style>
-    
       #InfoSidebar {
         height: 250px;
         width: 0;

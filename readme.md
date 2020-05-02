@@ -5,5 +5,5 @@
 
 
 
-### Thesis in Production, v1.2
+### Thesis in Production, v1.3
 #### Thesis Research here : https://github.com/robincoenen/thesis

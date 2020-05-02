@@ -16,7 +16,7 @@
       crossorigin="anonymous"
     />
 
-    <title>Vignette_3</title>
+    <title>Vignette_2</title>
     <link rel="stylesheet" href="css/main.css" />
 
     <script
@@ -34,48 +34,48 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="./libraries/src/okzoom.min.js"></script>
+    <script src="https://d3js.org/d3.v3.js"></script>
+
   </head>
   <body>
     <!-- NAVHBAR -->
 
     <nav class="navbar fixed-top navbar-light bg-light">
       <div class="d-flex justify-content-start">
+
         <!-- Question here -->
 
         <span class="navbar-text">
-          Which stakeholder reacts to which claim?
+          Does the UNCLOS aggregate or encounter existing inequalities?
         </span>
       </div>
 
       <!-- Previous/Next Links here -->
 
-      <!--<a class="nav-link" href="#">Next Chapter</a>-->
       <div class="d-flex justify-content-end">
         <a class="nav-link" href="vignette_4.html">PREVIOUS</a>
-        <a class="nav-link" href="dashboard.html">NEXT</a>
+        <a class="nav-link" href="vignette_6.html">NEXT</a>
         <button
           class="btn btn-link"
           type="button"
           data-toggle="collapse"
           data-target="#index"
           aria-expanded="false"
-          aria-controls="collapseExample"
         >
           INDEX
         </button>
       </div>
     </nav>
 
-    
     <button
-    class="btn btn-link"
-    type="button"
-    id="moreInfoButton"
-    data-toggle="toggle"
-    data-target="#InfoSidebar"
-    aria-expanded="false"
-    aria-controls="collapseExample"
+      class="btn btn-link"
+      type="button"
+      id="moreInfoButton"
+      data-toggle="toggle"
+      data-target="#InfoSidebar"
+      aria-expanded="false"
+      aria-controls="collapseExample"
     >
       <svg
         class="bi bi-plus-circle-fill"
@@ -95,182 +95,188 @@
 
     <!-- MoreInfo Content here -->
 
-    <h5 id="InfoSidebar">
-      Legend
-      <hr>
-      <img src="./img/legends/legend_stakeholder.svg">
-      </br>
-      </br>
-      Facsimile
-      <hr>
-      <img src="./img/content/diplomatic_notes.png" width="400" height="auto">
-     </br>
-      </br>
-      Context
-      <hr>
-      The UN archives publicly all written diplomatic exchanges whiichare related to the Claims in regard of the Continental Shelf. The image above shows such an verbal note as an example. This graph visualizes which stakeholder reacts to which claim (including answers to the reactions)
-      </br>
-      </br>
+      <h5 id="InfoSidebar">
+        Work in progress (Area size at the moment without claims)
       </h5>
+    </div>
 
-  </div>
+        <!-- Index Content here -->
 
+
+    <!-- VIGNETTE CONTENT HERE -->
+    <div id="clickbutton"></div>
+    <div id="circlez">
+    </div>
+
+    <style>
+      #circlez{background-color:black; height:100vh;}
+      #clickbutton {position: fixed; background-color:white; color:black;font-size:14px; margin-left: 2%; margin-top:5.5%; border: 1px solid; padding: 3px;}
+      line    {stroke:#ddd;shape-rendering: crispEdges;}
+      text    {text-anchor:left;}
+      circle {fill:white;fill-opacity:1;}
+      .axis line {fill:none;stroke:#ddd;shape-rendering: crispEdges;}
+      .axis path  {fill:none;}
+      .axis text {font-size:0.7em;fill:#555;font-family:sans-serif}
+  </style>
+    <script>
+
+            //2 different data arrays
+            var dataArray6021000 = [25.8,200.7];
+            var dataArray7219999 = [25.8,282.4];
+            
+            //globals
+           
+            
+            //create main svg element
+            var width = 1640
+            var height = 1080
+
+            var dataIndex=6021000;
+            var xBuffer=450;
+            var yBuffer=height/1.8;
+            var lineLength=400;
+            
+            var svg = d3.select("#circlez")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .style("background-color", "black") 
+
+                //OVERSEA
+                svg.append("text")
+                .attr("x",900)
+                .attr("y",120)
+                .text("6021000 km2 of Economic Exploitable Area")
+                .style("fill","white");
+
+                svg.append("text")
+                .attr("x",900)
+                .attr("y",100)
+                .text("Great Britain & North Ireland’s Oversea Territory:")
+                .style("fill","white");
+
+
+                //MAINLAD
+                svg.append("text")
+                .attr("x",300 )
+                .attr("y",100)
+                .text("Great Britain & North Ireland’s:")
+                .style("fill","white")
+
+                svg.append("text")
+                .attr("x",300)
+                .attr("y",120)
+                .text("774000 km2 of Economic Exploitable Area")
+                .style("fill","white")
+
+
+            //create axis line
+            
+            
+            //create basic circles
+            svg.append("g").selectAll("click")
+                .data(eval("dataArray"+dataIndex))
+                .enter()
+                .append("circle")
+                .attr("cx",function(d,i){
+                    var spacing = 600;
+                    return xBuffer+(i*spacing)
+                })
+                .attr("cy",yBuffer)
+                .attr("r",function(d,i){return d});
+            
+            //button to swap over datasets
+            d3.select("#clickbutton").append("click")
+                .text("With Claims")
+                .on("click",function(){
+                    //select new data
+                    if (dataIndex==6021000) {
+                        dataIndex=7219999;  
+                    } else   {
+                        dataIndex=6021000;
+                    }
+                    //rejoin data
+                    var circle = svg.select("g").selectAll("circle")
+                        .data(eval("dataArray"+dataIndex));
+                    
+                    circle.exit().remove();//remove unneeded circles
+                    circle.enter().append("circle")
+                        .attr("r",0);//create any new circles needed
+
+                    //update all circles to new positions
+                    circle.transition()
+                        .duration(400)
+                        .attr("cx",function(d,i){
+                            var spacing = 600;
+                            return xBuffer+(i*spacing)
+                        })
+                        .attr("cy",yBuffer)
+                        .attr("r",function(d,i){return d});
+
+                    d3.select("text").text(dataIndex+" km2 of Economic Exploitable Area");
+
+                });//end click function
+
+            
+        </script>
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Sideway Sidebar Prototype -->
     <script>
       $("[data-toggle='toggle']").click(function () {
         var selector = $(this).data("target");
         $(selector).toggleClass("in");
       });
-
     </script>
 
-    <!-- Index Content here -->
+    <style>
+      #InfoSidebar {
+        height: 250px;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: white;
+        overflow-x: hidden;
+        padding-top: 6.5%;
+        transition: 0.5s;
+      }
+      #InfoSidebar.in {
+        width: 40%;
+        height: 100vh;
+        padding-left: 7%;
+        padding-right: 1.8%;
+      }
 
-    <div class="collapse" id="index">
-      <div class="card card-body">
-        <p class="text-center" id="heading">
-          With Compliments <br />
-          to the Secretary General
-        </p>
+      #placeholderImg {
+        position: absolute;
+        z-index: -9999;
+        width: 95%;
+        margin-top: 68px;
+      }
 
-        <p class="text-right">
-          last updated <br />
-          30.04.2020
-        </p>
-        <p class="text-center" id="sub-heading">
-          visualising maritime claims <br />
-          at the UN in regards <br />
-          of the continental shelf<br /><br />
-          here will be a index of all questions
-        </p>
-
-        <p class="text-left"></p>
-      </div>
-    </div>
-
-    <!-- VIGNETTE CONTENT HERE -->
-<div id="diplomatic_Notes"></div>
-   <script>
-// set the dimensions and margins of the graph
-var margin = {top: 0, right: 160, bottom: 150, left: 90},
-  width = 1790 - margin.left - margin.right,
-  height = 900 - margin.top - margin.bottom;
-
-// append the svg object to the body of the page
-var svg = d3.select("#diplomatic_Notes")
-  .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
-
-//data
-d3.json("./data/stakeholder_globalnorth-vs-south_group_b.json", function( data) {
-
-  // List of node names
-  var allNodes = data.nodes.map(function(d){return d.name})
-
-  // List of groups
-  var allGroups = data.nodes.map(function(d){return d.gr})
-  allGroups = [...new Set(allGroups)]
-
-  // A color scale for groups:
-  var color = d3.scaleOrdinal()
-    .domain(allGroups)
-    .range(["#3DB49C", "#A1D3C4","#E3F1ED","#9166A9","#BBA3CE" ]);
-
-  // A linear scale for node size
-  var size = d3.scaleLinear()
-    .domain([1,10])
-    .range([2,10]);
-
-  // A linear scale to position the nodes on the X axis
-  var x = d3.scalePoint()
-    .range([0, width])
-    .domain(allNodes)
-
-//link between this id and the name
-  var idToNode = {};
-  data.nodes.forEach(function (n) {
-    idToNode[n.id] = n;
-  });
-
-  // Add the links
-  var links = svg
-    .selectAll('mylinks')
-    .data(data.links)
-    .enter()
-    .append('path')
-    .attr('d', function (d) {
-      start = x(idToNode[d.source].name)
-      end = x(idToNode[d.target].name)  
-      return ['M', start, height-30,    
-        'A',                            
-        (start - end)/1.95, ',',    
-        (start - end)/1.95, 0, 0, ',',
-        start < end ? 1 : 0, end, ',', height-30] 
-        .join(' ');
-    })
-    .style("fill", "none")
-    .attr("stroke", "white")
-    .style("stroke-width", 1)
-
-  // Add the circle for the nodes
-  var nodes = svg
-    .selectAll("mynodes")
-    .data(data.nodes.sort(function(a,b) { return +b.n - +a.n }))
-    .enter()
-    .append("circle")
-      .attr("cx", function(d){ return(x(d.name))})
-      .attr("cy", height-30)
-      .attr("r", 7)
-      .style("fill", function(d){ return color(d.gr)})
-      .attr("stroke", "white")
-
-  // And give them a label
-  var labels = svg
-    .selectAll("mylabels")
-    .data(data.nodes)
-    .enter()
-    .append("text")
-      .attr("x", 0)
-      .attr("y", 0)
-      .text(function(d){ return(d.name)} )
-      .style("fill", "white")
-      .style("text-anchor", "end")
-      .attr("transform", function(d){ return( "translate(" + (x(d.name)) + "," + (height-18) + ")rotate(-90)")})
-      .style("font-size", 14)
-
-  // Add the highlighting functionality
-  nodes
-    .on('mouseover', function (d) {
-      // Highlight the nodes: every node is green except of him
-      nodes
-        .style('opacity', 1)
-      d3.select(this)
-        .style('opacity', 1)
-      // Highlight the connections
-      links
-        .style('stroke', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? color(d.gr) : '#b8b8b8';})
-        .style('stroke-opacity', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? 1 : .2;})
-        .style('stroke-width', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? 4 : 1;})
-      labels
-        .style("font-size", function(label_d){ return label_d.name === d.name ? 18 : 13 } )
-        .attr("y", function(label_d){ return label_d.name === d.name ? 2 : 0 } )
-
-    })
-    .on('mouseout', function (d) {
-      nodes.style('opacity', 1)
-      links
-        .style('stroke', 'white')
-        .style('stroke-opacity', .8)
-        .style('stroke-width', '1')
-      labels
-        .style("font-size", 14 )
-
-    })
-})
-
-</script>
+    </style>
   </body>
 </html>
