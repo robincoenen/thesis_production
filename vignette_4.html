@@ -16,7 +16,7 @@
       crossorigin="anonymous"
     />
 
-    <title>Vignette_2</title>
+    <title>Vignette_4</title>
     <link rel="stylesheet" href="css/main.css" />
 
     <script
@@ -55,7 +55,7 @@
 
       <div class="d-flex justify-content-end">
         <a class="nav-link" href="vignette_3.html">PREVIOUS</a>
-        <a class="nav-link" href="vignette_5.html">NEXT</a>
+        <a class="nav-link" href="dashboard.html">NEXT</a>
         <button
           class="btn btn-link"
           type="button"
@@ -121,8 +121,8 @@
     <script>
 
             //2 different data arrays
-            var dataArray9745000 = [11.1666666667,324.6666666667];
-            var dataArray13957671 = [11.1666666667,465];
+            var dataArray6021000 = [25.8,200.7];
+            var dataArray7219999 = [25.8,282.4];
             
             //globals
            
@@ -131,7 +131,7 @@
             var width = 1640
             var height = 1080
 
-            var dataIndex=9745000;
+            var dataIndex=6021000;
             var xBuffer=450;
             var yBuffer=height/1.8;
             var lineLength=400;
@@ -146,13 +146,13 @@
                 svg.append("text")
                 .attr("x",900)
                 .attr("y",120)
-                .text("9745000 km2 of Economic Exploitable Area")
+                .text("6021000 km2 of Economic Exploitable Area")
                 .style("fill","white");
 
                 svg.append("text")
                 .attr("x",900)
                 .attr("y",100)
-                .text("France’s Oversea Territory:")
+                .text("Great Britain & North Ireland’s Oversea Territory:")
                 .style("fill","white");
 
 
@@ -160,13 +160,13 @@
                 svg.append("text")
                 .attr("x",300 )
                 .attr("y",100)
-                .text("France’s Mainland:")
+                .text("Great Britain & North Ireland’s:")
                 .style("fill","white")
 
                 svg.append("text")
                 .attr("x",300)
                 .attr("y",120)
-                .text("335000 km2 of Economic Exploitable Area")
+                .text("774000 km2 of Economic Exploitable Area")
                 .style("fill","white")
 
 
@@ -190,10 +190,10 @@
                 .text("With Claims")
                 .on("click",function(){
                     //select new data
-                    if (dataIndex==9745000) {
-                        dataIndex=13957671;  
+                    if (dataIndex==6021000) {
+                        dataIndex=7219999;  
                     } else   {
-                        dataIndex=9745000;
+                        dataIndex=6021000;
                     }
                     //rejoin data
                     var circle = svg.select("g").selectAll("circle")
