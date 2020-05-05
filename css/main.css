@@ -52,6 +52,8 @@
   padding-right: 1.8%;
 }
 
+:hover{color: "white"}
+
 b {
   font-family: "Simplon-Bold";
 }
@@ -69,6 +71,7 @@ body {
   margin-right: 0rem !important;
 }
 .navbar{
+  z-index:999999999999999999999999;
   padding: .1rem 1rem;
 }
 .navbar-text {
@@ -101,24 +104,43 @@ a {
   background-color: transparent;
 }
 
+.card {
+  background-color: white !important;
+height:100vh;
+z-index: 9999;
 
+
+}
 #index {
-  z-index: 9999;
+  z-index: 999999999999;
+  background-color:grey !important;
 }
 /* Overview*/
 
+#overview{display:flex; word-spacing: -0.1em;}
+        #scenarios{width:47%;text-align:right;  margin-right:1.2%;}
+        #policies{flex-grow:1; width: 48%;}
+
+
 #overview{ 
   font-family: "Simplon-Regular-Italic";
-    font-size: 28px;
+    font-size: 18px;
     color: black !important;
-    margin-left: 15%;
-    margin-right: 15%;}
+    margin-left: 13%;
+    margin-right: 10%;
+  }
 
 .text-center {
-  padding-top: 80px;
+  padding-top: 60px;
+}
+
+#imprint {
+  padding-top: 20px;
+  font-size:18px !important;
 }
 
 #heading {
+  margin-top:2%;
   font-family: "Simplon-Bold";
   font-size: 56px;
   line-height: 1em;

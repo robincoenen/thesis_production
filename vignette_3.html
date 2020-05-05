@@ -34,7 +34,6 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-    <script src="./libraries/src/okzoom.min.js"></script>
     <script src="https://d3js.org/d3.v3.js"></script>
 
   </head>
@@ -68,6 +67,8 @@
       </div>
     </nav>
 
+      <!-- More Info Button -->
+
     <button
       class="btn btn-link"
       type="button"
@@ -100,13 +101,37 @@
       </h5>
     </div>
 
-        <!-- Index Content here -->
-
+                  <!-- Index Content here -->
+      
+                  <div class="collapse" id="index">
+                    <div class="card card-body">
+                      <p class="text-center" id="heading">With Compliments <br> to the Secretary General </p>
+                  
+                      <p class="text-right">last updated <br> 05.05.2020</p>
+                      <p class="text-center" id="sub-heading">Visualising Maritime Claims  <br> at the UN in regards <br> to the Continental Shelf</p>
+                      <div id= "overview">
+                        <div id ="scenarios"><b>Scenarios</b></br> 
+                          <a href="./vignette_1.html">Is the sea a common property without borders?</a></br> 
+                          <a href="./vignette_2.html"><u>How much area is claimed by who?</u></a></br>
+                          <a href="./vignette_3.html">Does the UNCLOS aggregate or encounter existing inequalities?</a></br></div>
+                        <div id ="policies"><b>Policies </b></br>
+                          <a href="./vignette_a.html">Does the Convention on the Law of the Sea create an extractive imaginery?</a></br> 
+                          <a href="./vignette_b.html">What is the diplomatic process of a claim?</a></br>
+                          <a href="./vignette_c.html">Which stakeholder reacts to which claim?</a></br>
+                        </div>
+                      </div>
+                      <p class="text-center" id = "imprint"><b><a href="./dashboard.html">Dashboard Tool</a></b></p>
+                      <p class="text-center" id = "imprint"><a href="./imprint.html"></a>This project visualizes and contextualizes</br> all claims in regard of the contintental shelf at the UN. </br> Robin Coenen, 2020.</br></br><a href="./imprint.html"> Imprint, Methodology & Sources </a></p>
+            
+                        </div>
+                  </div>
 
     <!-- VIGNETTE CONTENT HERE -->
     <div id="clickbutton"></div>
     <div id="circlez">
     </div>
+
+      <!-- Vignette Styles -->
 
     <style>
       #circlez{background-color:black; height:100vh;}
@@ -123,9 +148,7 @@
             //2 different data arrays
             var dataArray9745000 = [11.1666666667,324.6666666667];
             var dataArray13957671 = [11.1666666667,465];
-            
-            //globals
-           
+                       
             
             //create main svg element
             var width = 1640
@@ -168,9 +191,6 @@
                 .attr("y",120)
                 .text("335000 km2 of Economic Exploitable Area")
                 .style("fill","white")
-
-
-            //create axis line
             
             
             //create basic circles
@@ -199,9 +219,7 @@
                     var circle = svg.select("g").selectAll("circle")
                         .data(eval("dataArray"+dataIndex));
                     
-                    circle.exit().remove();//remove unneeded circles
-                    circle.enter().append("circle")
-                        .attr("r",0);//create any new circles needed
+                   
 
                     //update all circles to new positions
                     circle.transition()
@@ -220,24 +238,6 @@
             
         </script>
      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

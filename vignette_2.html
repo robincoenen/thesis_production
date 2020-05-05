@@ -15,7 +15,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v4.js"></script>
-<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
   </head>
   <body>
 
@@ -23,6 +22,7 @@
 
           <nav class="navbar fixed-top navbar-light bg-light">
             <div class="d-flex justify-content-start">
+
             <!-- Question here -->
       
             <span class="navbar-text">
@@ -86,7 +86,9 @@
         </br>
          </br>
     </h5>
-  
+
+      <!-- More Info Sidebar Toggle -->
+
       <script>
         $("[data-toggle='toggle']").click(function () {
           var selector = $(this).data("target");
@@ -99,23 +101,24 @@
         <div class="card card-body">
           <p class="text-center" id="heading">With Compliments <br> to the Secretary General </p>
       
-          <p class="text-right">last updated <br> 04.05.2020</p>
-          <p class="text-center" id="sub-heading">visualising maritime claims  <br> at the UN in regards <br> of the continental shelf</p>
-          <p class="text-left" id="overview">SCENARIOS </br> 
-            Is the sea a common property without borders?</br> 
-            How much area is claimed by who?</br>
-            How much area is claimed by who?</br>
-            Does the UNCLOS aggregate or encounter existing inequalities?</br>
-            POLICIES </br>
-            Does the Convention on the Law of the Sea create an extractive imaginery?</br> 
-            What is the diplomatic process of a claim?</br>
-            Which stakeholder reacts to which claim?</br>
-            DASHBOARD</br>
+          <p class="text-right">last updated <br> 05.05.2020</p>
+          <p class="text-center" id="sub-heading">Visualising Maritime Claims  <br> at the UN in regards <br> to the Continental Shelf</p>
+          <div id= "overview">
+            <div id ="scenarios"><b>Scenarios</b></br> 
+              <a href="./vignette_1.html">Is the sea a common property without borders?</a></br> 
+              <a href="./vignette_2.html"><u>How much area is claimed by who?</u></a></br>
+              <a href="./vignette_3.html">Does the UNCLOS aggregate or encounter existing inequalities?</a></br></div>
+            <div id ="policies"><b>Policies </b></br>
+              <a href="./vignette_a.html">Does the Convention on the Law of the Sea create an extractive imaginery?</a></br> 
+              <a href="./vignette_b.html">What is the diplomatic process of a claim?</a></br>
+              <a href="./vignette_c.html">Which stakeholder reacts to which claim?</a></br>
+            </div>
+          </div>
+          <p class="text-center" id = "imprint"><b><a href="./dashboard.html">Dashboard Tool</a></b></p>
+          <p class="text-center" id = "imprint"><a href="./imprint.html"></a>This project visualizes and contextualizes</br> all claims in regard of the contintental shelf at the UN. </br> Robin Coenen, 2020.</br></br><a href="./imprint.html"> Imprint, Methodology & Sources </a></p>
 
-          </p>  
             </div>
       </div>
-      
 
           <!-- VIGNETTE CONTENT HERE -->
           <!-- modified from https://www.d3-graph-gallery.com -->
@@ -140,9 +143,6 @@ var svg = d3.select("#area_size")
     .attr("height", height)
 
 d3.csv("./data/claim-size_2.csv", function(data) {
-
-  // Filter needed?
-  data = data.filter(function(d){ return d.value>100 })
 
   // Size scale for countries
   var size = d3.scaleLinear()
@@ -197,14 +197,7 @@ d3.csv("./data/claim-size_2.csv", function(data) {
            .on("drag", dragged)
            .on("end", dragended));
 
-  // Force
 
-
-//var simulation = d3.forceSimulation()
-//    .force("center", d3.forceCenter().x(width / 2.2).y(height / 2)) // Attraction to the center of the svg area
-//    .force("charge", d3.forceManyBody().strength(0.1)) // Nodes are attracted one each other of value is > 0
-//    .force("collide", d3.forceCollide().strength(.1).radius(function(d){ return (size(d.value)+3) }).iterations(1)) // Force that avoids circle overlapping
-//
 var x = d3.scaleOrdinal()
   .domain([1, 2])
   .range([450, 900])
