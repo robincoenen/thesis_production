@@ -32,14 +32,23 @@
             <!-- Previous/Next Links here -->
       
         <div class="d-flex justify-content-end">
-        <a class="nav-link" href="index.html" >PREVIOUS</a>
-        <a class="nav-link" href="vignette_b.html">NEXT</a>
+        <a class="nav-link" href="index.html" data-toggle="tooltip" data-placement="top" title="Landingpage">PREVIOUS</a>
+        <a class="nav-link" href="vignette_b.html" data-toggle="tooltip" data-placement="top" title="Next Policy Section">NEXT</a>
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#index" aria-expanded="false">
           INDEX
           </button>   
         </div>
       </nav>
       
+
+                <!-- Tooltip Function -->
+
+<script>$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})</script>
+
+      <!-- More Info Button -->
+
       <button
       class="btn btn-link"
       type="button"

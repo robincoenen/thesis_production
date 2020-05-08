@@ -52,8 +52,8 @@
 
       <!--<a class="nav-link" href="#">Next Chapter</a>-->
       <div class="d-flex justify-content-end">
-        <a class="nav-link" href="vignette_b.html">PREVIOUS</a>
-        <a class="nav-link" href="dashboard.html">NEXT</a>
+        <a class="nav-link" href="vignette_b.html" data-toggle="tooltip" data-placement="top" title="Previous Policy Section" >PREVIOUS</a>
+        <a class="nav-link" href="dashboard.html"  data-toggle="tooltip" data-placement="top" title="Next Section: Dashboard" >NEXT</a>
         <button
           class="btn btn-link"
           type="button"
@@ -67,7 +67,14 @@
       </div>
     </nav>
 
+      <!-- Tooltip Function -->
+
+<script>$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})</script>
     
+          <!-- More Info Button -->
+
     <button
     class="btn btn-link"
     type="button"
@@ -147,6 +154,9 @@
 
       </div>
 </div>
+
+
+
 
     <!-- VIGNETTE CONTENT HERE -->
 <div id="diplomatic_Notes"></div>

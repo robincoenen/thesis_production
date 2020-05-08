@@ -54,8 +54,8 @@
       <!-- Previous/Next Links here -->
 
       <div class="d-flex justify-content-end">
-        <a class="nav-link" href="vignette_3.html">PREVIOUS</a>
-        <a class="nav-link" href="dashboard.html">NEXT</a>
+        <a class="nav-link" href="vignette_3.html" data-toggle="tooltip" data-placement="top" title="Previous Scenario Section" >PREVIOUS</a>
+        <a class="nav-link" href="dashboard.html"  data-toggle="tooltip" data-placement="top" title="Next Section: Dashboard">NEXT</a>
         <button
           class="btn btn-link"
           type="button"
@@ -67,6 +67,14 @@
         </button>
       </div>
     </nav>
+
+     <!-- Tooltip Function -->
+
+<script>$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})</script>
+
+      <!-- More Info Button -->
 
     <button
       class="btn btn-link"
