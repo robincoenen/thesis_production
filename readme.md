@@ -1,9 +1,7 @@
 # With Compliments to the Secretary General
 ## Visualizing Maritime Claims at the UN in regard to the Continental Shelf
-
+#### Researched, Designed & Developed by Robin Coenen, 2020
 ![alt text](preview.png "Thesis preview image")
-
-
 
 #### Abstract
 Unlike the landmass, divided by many borders into different states, most of our maps and mental images represent the sea free of any delimitations.
@@ -16,7 +14,15 @@ The level of transparency created by the visualization will exert beneficial pre
 This thesis ultimately also contextualizes the nature of the Convention on the Law of the Sea itself: Does the convention aggregate or counteract already existing inequalities between countries?  
 An original dataset will be compiled from all 85 executive summaries of the current continental shelf submissions as well as their accompanying diplomatic notes, both housed in digital UN archives. This dataset will be fully integrated into a web based dashboard with visual representations and a detailed commentary upon the possible repercussions of this revisioning of the world oceans. Over and above that, the aggregated data will also be published as a stand alone, open source and documented dataset for the common good.
 
+###### Credits
+This project is designed, researched & developed by Robin Coenen in partial fulfillment of the requirements for the degree of Master of Science in Data Visualization, at Parsons The New School for Design. The advisors are Daniel Sauter & Aaron Hill.
+
+###### Sources
+Exclusive Economic Zone, Contiguous Zones, Territorial Seas:  
+Flanders Marine Institute (2019). Maritime Boundaries Geodatabase, version 11. Available online at https://www.marineregions.org/. https://doi.org/10.14284/382.
+Executive Summaries of all Claims and related Diplomatic Exchange:  
+https://www.un.org/Depts/los/clcs_new/commission_submissions.htm
 
 
-#### Thesis in Production, v1.5
+#### Thesis in Production, v1.6
 #### Thesis Research here : https://github.com/robincoenen/thesis
