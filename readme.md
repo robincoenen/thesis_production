@@ -13,6 +13,14 @@ Which area is claimed and which stakeholders are involved in that claim? How muc
 The level of transparency created by the visualization will exert beneficial pressure on those states to abide by agreements and to take care in territorial ambitions. It furthermore renders the claims and their effects understandable and visible to the general public.  
 This thesis ultimately also contextualizes the nature of the Convention on the Law of the Sea itself: Does the convention aggregate or counteract already existing inequalities between countries?  
 An original dataset will be compiled from all 85 executive summaries of the current continental shelf submissions as well as their accompanying diplomatic notes, both housed in digital UN archives. This dataset will be fully integrated into a web based dashboard with visual representations and a detailed commentary upon the possible repercussions of this revisioning of the world oceans. Over and above that, the aggregated data will also be published as a stand alone, open source and documented dataset for the common good.
+![alt text](1.png "Landing Page")
+![alt text](2.png "Dashboard Tool")
+![alt text](3.png "Convention on the Law of the Sea")
+![alt text](4.png "Area Comparism")
+
+
+
+
 
 ###### Credits
 This project is designed, researched & developed by Robin Coenen in partial fulfillment of the requirements for the degree of Master of Science in Data Visualization, at Parsons The New School for Design. The advisors are Daniel Sauter & Aaron Hill.
@@ -20,7 +28,7 @@ This project is designed, researched & developed by Robin Coenen in partial fulf
 ###### Sources
 Exclusive Economic Zone, Contiguous Zones, Territorial Seas:  
 Flanders Marine Institute (2019). Maritime Boundaries Geodatabase, version 11. Available online at https://www.marineregions.org/. https://doi.org/10.14284/382.
-Executive Summaries of all Claims and related Diplomatic Exchange:  
+Executive Summaries of all Claims and related Diplomatic Exchange:    
 https://www.un.org/Depts/los/clcs_new/commission_submissions.htm
 
 
