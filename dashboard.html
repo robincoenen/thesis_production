@@ -315,7 +315,7 @@ box-shadow: 5px 0px black;
 
               var cont_claims 
     $.ajax({
-        url: "https://raw.githubusercontent.com/robincoenen/thesis/master/all_claims_b.geojson",
+        url: "https://raw.githubusercontent.com/robincoenen/thesis/master/all_claims_v2.geojson",
         async: false,
         dataType: 'json',
         success: function(data) {
@@ -345,7 +345,7 @@ cont_claims.features.forEach(function(store, i){
 
                 map.addSource('outli', {
 'type': 'geojson',
-'data':'https://raw.githubusercontent.com/robincoenen/thesis/master/all_claims_b.geojson',
+'data':'https://raw.githubusercontent.com/robincoenen/thesis/master/all_claims_v2.geojson',
 'generateId': true
 });
                 map.addLayer({
@@ -449,6 +449,24 @@ cont_claims.features.forEach(function(store, i){
                         + "<b style='text-align:right;'>" + prop.rz_dipl_note_date_6 + "</b>"
                         + prop.rz_dipl_note_state_6 + "</br>"
                         + prop.rz_dipl_note_cont_6+"</br></br></div></details>";
+                        + "<b style='text-align:right;'>" + prop.rz_dipl_note_date_7 + "</b>"
+                        + prop.rz_dipl_note_state_7 + "</br>"
+                        + prop.rz_dipl_note_cont_7+"</br></br></div></details>";
+                        + "<b style='text-align:right;'>" + prop.rz_dipl_note_date_8 + "</b>"
+                        + prop.rz_dipl_note_state_8 + "</br>"
+                        + prop.rz_dipl_note_cont_8+"</br></br></div></details>";
+                        + "<b style='text-align:right;'>" + prop.rz_dipl_note_date_9 + "</b>"
+                        + prop.rz_dipl_note_state_9 + "</br>"
+                        + prop.rz_dipl_note_cont_8+"</br></br></div></details>";
+                        + "<b style='text-align:right;'>" + prop.rz_dipl_note_date_10 + "</b>"
+                        + prop.rz_dipl_note_state_10 + "</br>"
+                        + prop.rz_dipl_note_cont_10+"</br></br></div></details>";
+                        + "<b style='text-align:right;'>" + prop.rz_dipl_note_date_11 + "</b>"
+                        + prop.rz_dipl_note_state_11 + "</br>"
+                        + prop.rz_dipl_note_cont_11+"</br></br></div></details>";
+                        + "<b style='text-align:right;'>" + prop.rz_dipl_note_date_12 + "</b>"
+                        + prop.rz_dipl_note_state_12 + "</br>"
+                        + prop.rz_dipl_note_cont_12+"</br></br></div></details>";
           /**
            * Listen to the element and when it is clicked, do four things:
            * 1. Update the `currentFeature` to the store associated with the clicked link
