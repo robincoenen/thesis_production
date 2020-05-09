@@ -315,7 +315,7 @@ box-shadow: 5px 0px black;
 
               var cont_claims 
     $.ajax({
-        url: "https://raw.githubusercontent.com/robincoenen/thesis/master/all_claims_v2.geojson",
+        url: "https://raw.githubusercontent.com/robincoenen/thesis/master/continental_shelf_claims_v1.geojson",
         async: false,
         dataType: 'json',
         success: function(data) {
@@ -345,7 +345,7 @@ cont_claims.features.forEach(function(store, i){
 
                 map.addSource('outli', {
 'type': 'geojson',
-'data':'https://raw.githubusercontent.com/robincoenen/thesis/master/all_claims_v2.geojson',
+'data':'https://raw.githubusercontent.com/robincoenen/thesis/master/continental_shelf_claims_v1.geojson',
 'generateId': true
 });
                 map.addLayer({
