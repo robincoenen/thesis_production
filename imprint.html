@@ -55,7 +55,6 @@
       <!-- Previous/Next Links here -->
 
       <div class="d-flex justify-content-end">
-        <a class="nav-link" href="vignette_c.html">NEXT</a>
         <button
           class="btn btn-link"
           type="button"
@@ -240,11 +239,17 @@
     </script>
 
    <div id="sourcesdiv">        
-      <p class="text-left" id="sources">ABOUT</br>This project is designed, researched & developed by Robin Coenen in partial fulfillment of the requirements for the degree of Master of Science in Data Visualization, at Parsons The New School for Design. The advisor was Daniel Sauter.</p>
+      <p class="text-left" id="sources">ABOUT</br>This project is designed, researched & developed by Robin Coenen in partial fulfillment of the requirements for the degree of Master of Science in Data Visualization, at Parsons The New School for Design. 
+        The advisor was Daniel Sauter.</p>
+        <p class="text-left" id="sources">Contact</br>mail@robincoenen.de</p>
       <p class="text-left" id="sources">Methodology</br>In order to create a dataset of all claims in regard of the Continental Shelf, the Executive Summaries of all Claims as well as related diplomatic notes were scraped from the UN Page. The Coordinates provided by the States in these Executive Summary were digitalised and geographically mapped with QGIS. In order to create the polygon shape, the related EEZ boundaries (taken from the Marine Boundaries V11)  were connected with the provided Point Coordinates. QGIS was furthermore used to measure the area size of all Claim in square kilometres. 
         Furthermore the most crucial essence of all related diplomatic notes were digitalised and centralised I the dataset with the respective claims.</p>
       <p class="text-left" id="sources">Sources</br>Dataset with Baselines, Territorial Zone, Contiguos Zone & Exclusive Economic Zone:</br>_Flanders Marine Institute (2019). Maritime Boundaries Geodatabase, version 11. Available online at http://www.marineregions.org/. https://doi.org/10.14284/382.</br>
       PDFS of Executive Summaries & Diplomatic Notes: </br>_https://www.un.org/Depts/los/clcs_new/commission_submissions.htm
+    </p>
+    <p class="text-left" id="sources">Appendix</br>Claim 46 from the State "Tonga" is not represented on the Map, due to Problems with the Mercator Projection. 
+      Same is valid for parts of Claims from Russia (Claim 01), Denmark (Claim 76) and Canada (Claim 84). All these (except Tongas Claim) are claims related to areas in the Arctic (see Image below) </br>
+      <img src="./img/polar_b.png" alt="Polar Projectionn" height="400">
     </p>
     <p class="text-left" id="sources">Cover of all Executive Summaries sorted by Submission Date:</p>
 
